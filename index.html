@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Josevaldo Junior Portfólio</title>
+<meta name="description" content="Josevaldo Junior, Engenheiro de Software Full Stack com mais de 5 anos de experiência em Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance.">
+<meta property="og:title" content="Josevaldo Junior · Engenheiro de Software Full Stack">
+<meta property="og:description" content="Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance, 100% remoto.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://josevaldojunior.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: coluna única de leitura (~68ch) com faixas de seção; hero tipográfico + linha de status estilo terminal */
+:root{
+  --bg:#F3F5F9; --surface:#FFFFFF; --ink:#111B2E; --muted:#56627A; --line:#D4DCE8;
+  --accent:#1D5FD1; --accent-soft:#E2EBFA; --mark:#B86A12;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C1220; --surface:#131C2E; --ink:#E3E9F4; --muted:#96A3BB; --line:#25304A;
+  --accent:#6FA3FF; --accent-soft:#17264A; --mark:#E8A34B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C1220; --surface:#131C2E; --ink:#E3E9F4; --muted:#96A3BB; --line:#25304A;
+  --accent:#6FA3FF; --accent-soft:#17264A; --mark:#E8A34B; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.65}
+.wrap{max-width:68rem;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.ph{background:var(--accent-soft);color:var(--mark);border-radius:4px;padding:0 .3em;font-weight:600}
+
+/* NAV */
+nav{border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1rem;flex-wrap:wrap}
+.logo{font-family:var(--mono);font-size:.9rem;font-weight:500;color:var(--ink);text-decoration:none}
+.logo b{color:var(--accent)}
+nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;flex-wrap:wrap;font-size:.9rem}
+nav ul a{color:var(--muted);text-decoration:none}
+nav ul a:hover{color:var(--ink)}
+
+/* HERO */
+.hero .wrap{padding-block:4.5rem 3.5rem;display:grid;gap:1.75rem}
+.status{font-family:var(--mono);font-size:.82rem;color:var(--muted);display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.status .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance}
+h1 .role{display:block;color:var(--accent);font-weight:700}
+.lede{font-size:1.15rem;color:var(--muted);max-width:60ch;margin:0}
+.lede strong{color:var(--ink);font-weight:600}
+.ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{font:600 .95rem var(--body);padding:.75rem 1.2rem;border-radius:8px;text-decoration:none;border:1px solid var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:.5rem}
+.facts div{background:var(--surface);padding:1rem 1.1rem}
+.facts dt{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.facts dd{margin:.2rem 0 0;font-family:var(--display);font-weight:700;font-size:1.3rem;font-variant-numeric:tabular-nums}
+
+/* SECTIONS */
+section{border-top:1px solid var(--line)}
+section > .wrap{padding-block:3.5rem;display:grid;grid-template-columns:13rem minmax(0,1fr);gap:2rem}
+.sec-label{font-family:var(--mono);font-size:.8rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin:0;padding-top:.35rem}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.5vw,2.1rem);line-height:1.15;letter-spacing:-.015em;margin:0 0 1.25rem;text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:1.2rem;margin:0;line-height:1.3}
+p{margin:0 0 1rem;max-width:66ch}
+.content > :last-child{margin-bottom:0}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.3rem;display:grid;gap:.5rem;align-content:start}
+.svc p{margin:0;color:var(--muted);font-size:.95rem}
+.svc .tag{font-family:var(--mono);font-size:.75rem;color:var(--accent)}
+.note{font-size:.92rem;color:var(--muted);margin-top:1.25rem}
+
+/* TIMELINE */
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:2rem}
+.job{display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:1.25rem}
+.when{font-family:var(--mono);font-size:.82rem;color:var(--muted);padding-top:.2rem;font-variant-numeric:tabular-nums}
+.job .lvl{display:inline-block;font-family:var(--mono);font-size:.72rem;padding:.12rem .5rem;border:1px solid var(--line);border-radius:99px;color:var(--muted);margin-left:.4rem;vertical-align:middle}
+.job .org{color:var(--accent);font-weight:600;font-size:.95rem;margin:.15rem 0 .5rem}
+.job ul{margin:0;padding-left:1.1rem;color:var(--ink)}
+.job li{margin-bottom:.3rem;max-width:64ch}
+.job li::marker{color:var(--accent)}
+
+/* PROJECTS */
+.projects{display:grid;gap:1rem}
+.projects.freelance{grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem 2rem;margin-top:1.5rem}
+.proj{border-left:3px solid var(--accent);padding:.25rem 0 .25rem 1.2rem}
+.proj .ctx{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.proj p{color:var(--muted);margin:.35rem 0 0}
+
+/* STACK */
+.stack{display:grid;gap:1.4rem}
+.stack h3{font-size:1rem;margin-bottom:.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;margin:0;padding:0}
+.chips li{font-family:var(--mono);font-size:.82rem;padding:.3rem .65rem;border-radius:6px;background:var(--surface);border:1px solid var(--line)}
+.chips.core li{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.stack .hint{font-size:.88rem;color:var(--muted);margin:.5rem 0 0}
+
+/* EDUCATION */
+.edu{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.edu li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-bottom:1px dashed var(--line);padding-bottom:.9rem}
+.edu span{color:var(--muted);font-size:.92rem}
+.edu .yr{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* CONTACT */
+.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.contact-list li{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.75rem 1rem}
+.contact-list .k{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);width:6.5rem}
+.contact-list .v{flex:1;min-width:0;overflow-wrap:anywhere;user-select:all}
+.copy{font:500 .8rem var(--mono);background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:.3rem .6rem;cursor:pointer}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+
+footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);font-family:var(--mono)}
+
+@media (max-width:760px){
+  section > .wrap{grid-template-columns:1fr;gap:.75rem;padding-block:2.75rem}
+  .job{grid-template-columns:1fr;gap:.35rem}
+  .hero .wrap{padding-block:3rem 2.5rem}
+  .contact-list .k{width:100%}
+}
+@media (prefers-reduced-motion:no-preference){
+  .status .dot{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 7px transparent}}
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#topo"><b>&lt;</b>josevaldo.junior<b>/&gt;</b></a>
+  <ul>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#freelance">Freelance</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="topo"><div class="wrap">
+  <div class="status"><span class="dot" aria-hidden="true"></span> Disponível para início imediato · CLT, PJ ou projetos · 100% remoto</div>
+  <h1>Josevaldo Junior<span class="role">Engenheiro de Software Full Stack</span></h1>
+  <p class="lede">Mais de cinco anos desenvolvendo, sustentando e modernizando sistemas corporativos, com especialidade em <strong>Java, Spring Boot e Angular</strong> e experiência com TypeScript, Node.js, React e Next.js. Analiso cada produto para propor a tecnologia e a arquitetura que ele realmente precisa.</p>
+  <div class="ctas">
+    <a class="btn primary" href="#contato">Entrar em contato</a>
+    <a class="btn ghost" href="#experiencia">Ver experiência</a>
+  </div>
+  <dl class="facts">
+    <div><dt>Experiência</dt><dd>5+ anos</dd></div>
+    <div><dt>Último nível</dt><dd>Sênior</dd></div>
+    <div><dt>Regime</dt><dd>100% remoto</dd></div>
+    <div><dt>Base</dt><dd>Castanhal, PA</dd></div>
+  </dl>
+</div></header>
+
+<section id="sobre"><div class="wrap">
+  <p class="sec-label">Sobre</p>
+  <div class="content">
+    <h2>Sistemas que precisam funcionar todos os dias</h2>
+    <p>Sou formado em Engenharia da Computação, com pós-graduações em Engenharia de Software e Desenvolvimento Web. Comecei como Trainee e cheguei a Pleno na FADESP, alocado na SEFA-PA, atuei como Pleno na SEFAZ-PE e, mais recentemente, como Sênior na Accenture.</p>
+    <p>Já trabalhei em sistemas fiscais, judiciais, financeiros, educacionais e de gestão de academias. Atuo em todo o ciclo: análise de requisitos, definição da solução, desenvolvimento, testes automatizados e sustentação, em contato direto com as áreas de negócio, arquitetura e infraestrutura.</p>
+    <p>Não parto de uma tecnologia fixa. Antes de desenvolver, entendo o problema, o volume de uso, a equipe e os sistemas existentes, e então recomendo a linguagem, o framework e a arquitetura mais adequados para o cliente e o produto.</p>
+    <p>Uso IA no dia a dia (Cursor, Claude, ChatGPT, GitHub Copilot e agentes) para analisar código legado, avaliar o impacto de mudanças e acelerar testes, sempre revisando e validando o que é gerado.</p>
+  </div>
+</div></section>
+
+<section id="servicos"><div class="wrap">
+  <p class="sec-label">Serviços</p>
+  <div class="content">
+    <h2>Como posso ajudar seu projeto</h2>
+    <div class="services">
+      <article class="svc">
+        <span class="tag">Java · Node.js · Angular · React</span>
+        <h3>Desenvolvimento de sistemas web</h3>
+        <p>Novas funcionalidades e módulos completos, do back-end à interface.</p>
+      </article>
+      <article class="svc">
+        <span class="tag">REST · microsserviços</span>
+        <h3>APIs e integração entre sistemas</h3>
+        <p>Criação e consumo de APIs REST e integração entre aplicações novas e existentes.</p>
+      </article>
+      <article class="svc">
+        <span class="tag">legado · Java EE</span>
+        <h3>Sustentação e modernização</h3>
+        <p>Correções, melhorias e migração de módulos legados sem parar a operação.</p>
+      </article>
+      <article class="svc">
+        <span class="tag">Oracle · SQL · PL/SQL</span>
+        <h3>Banco de dados e regras de negócio</h3>
+        <p>Persistência, consultas e rotinas no banco relacional.</p>
+      </article>
+      <article class="svc">
+        <span class="tag">stack · arquitetura</span>
+        <h3>Escolha de tecnologia e arquitetura</h3>
+        <p>Análise do produto e recomendação da stack e da arquitetura mais adequadas, de um monólito simples a microsserviços com mensageria.</p>
+      </article>
+    </div>
+    <p class="note">Atendo empresas como desenvolvedor contratado (CLT ou PJ) e também como freelancer.</p>
+  </div>
+</div></section>
+
+<section id="experiencia"><div class="wrap">
+  <p class="sec-label">Experiência</p>
+  <div class="content">
+    <h2>Experiência CLT</h2>
+    <ol class="timeline" reversed>
+      <li class="job">
+        <div class="when">set/2025 – set/2026</div>
+        <div>
+          <h3>Analista de Sistemas <span class="lvl">Sênior</span></h3>
+          <p class="org">Accenture do Brasil · remoto</p>
+          <ul>
+            <li>Conduziu a adequação de sistemas e regras de negócio ao novo formato alfanumérico do CNPJ, considerando validações, integrações e impactos nas aplicações.</li>
+            <li>Implementou evoluções no back-end e no front-end com Java, Spring Boot e Angular.</li>
+            <li>Desenvolveu e ajustou APIs REST para suportar o novo formato do CNPJ.</li>
+            <li>Criou testes automatizados e analisou impactos técnicos e funcionais das mudanças.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="when">nov/2022 – dez/2025</div>
+        <div>
+          <h3>Desenvolvedor de Sistemas <span class="lvl">Pleno</span></h3>
+          <p class="org">SEFAZ-PE · remoto</p>
+          <ul>
+            <li>Desenvolveu, sustentou e evoluiu sistemas de protocolos e documentos fiscais eletrônicos da administração pública.</li>
+            <li>Modernizou módulos legados em Java EE para microsserviços com Spring Boot e Angular.</li>
+            <li>Implementou APIs REST, serviços e integrações, preservando a comunicação com os sistemas existentes.</li>
+            <li>Desenvolveu testes com JUnit e Mockito e participou de code review e integração contínua.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="when">jul/2021 – fev/2023</div>
+        <div>
+          <h3>Analista de Desenvolvimento de Sistemas <span class="lvl">Trainee → Pleno</span></h3>
+          <p class="org">FADESP · alocado na SEFA-PA</p>
+          <ul>
+            <li>Desenvolveu, sustentou e evoluiu sistemas internos e de documentos fiscais eletrônicos.</li>
+            <li>Implementou APIs REST e microsserviços com Java e Spring Boot, integrados a aplicações Angular.</li>
+            <li>Desenvolveu persistência e acesso a dados com Oracle, SQL, PL/SQL, JPA e Hibernate.</li>
+            <li>Criou testes com JUnit e Mockito e atuou na integração contínua com Maven, GitLab e Jenkins.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="freelance"><div class="wrap">
+  <p class="sec-label">Freelance</p>
+  <div class="content">
+    <h2>Projetos como freelancer</h2>
+    <p>Além dos vínculos CLT, atuei como freelancer em projetos para empresas de diferentes setores.</p>
+    <div class="projects freelance">
+      <article class="proj">
+        <span class="ctx">Judiciário</span>
+        <h3>Sistemas de Tribunal de Justiça</h3>
+        <p>Desenvolvimento e manutenção de sistemas judiciais de um tribunal estadual.</p>
+      </article>
+      <article class="proj">
+        <span class="ctx">Financeiro</span>
+        <h3>Cooperativa de crédito</h3>
+        <p>Atuação em sistemas de uma das maiores cooperativas de crédito do país.</p>
+      </article>
+      <article class="proj">
+        <span class="ctx">Financeiro</span>
+        <h3>Banco público regional</h3>
+        <p>Atuação em sistemas de um banco público de desenvolvimento regional.</p>
+      </article>
+      <article class="proj">
+        <span class="ctx">Educação</span>
+        <h3>Grupo educacional</h3>
+        <p>Desenvolvimento Full Stack em sistemas de um grande grupo de educação.</p>
+      </article>
+      <article class="proj">
+        <span class="ctx">Fitness</span>
+        <h3>Plataforma de gestão para academias</h3>
+        <p>Evolução e sustentação dos serviços da plataforma, com cadastro de alunos, treinos e CRM.</p>
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<section id="stack"><div class="wrap">
+  <p class="sec-label">Tecnologias</p>
+  <div class="content stack">
+    <h2>Competências técnicas</h2>
+    <div>
+      <h3>Linguagens</h3>
+      <ul class="chips core">
+        <li>Java 8 · 11 · 17 · 21</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>PL/SQL</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Back-end</h3>
+      <ul class="chips core">
+        <li>Spring Boot</li><li>Node.js</li><li>Java EE</li><li>Spring Data</li><li>APIs REST</li><li>Microsserviços</li><li>WebFlux</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Front-end</h3>
+      <ul class="chips core">
+        <li>Angular</li><li>React</li><li>Next.js</li><li>HTML</li><li>CSS</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Arquitetura, integração e segurança</h3>
+      <ul class="chips">
+        <li>DDD</li><li>SOLID</li><li>Kafka</li><li>RabbitMQ</li><li>JMS</li><li>Redis</li><li>Spring Security</li><li>JWT</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Bancos de dados</h3>
+      <ul class="chips">
+        <li>Oracle</li><li>PostgreSQL</li><li>MySQL</li><li>DB2</li><li>MongoDB</li><li>JPA / Hibernate</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Qualidade e entrega</h3>
+      <ul class="chips">
+        <li>JUnit</li><li>Mockito</li><li>Code review</li><li>Git</li><li>Maven</li><li>Docker</li><li>Jenkins</li><li>GitLab CI/CD</li><li>SonarQube</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="formacao"><div class="wrap">
+  <p class="sec-label">Formação</p>
+  <div class="content">
+    <h2>Formação acadêmica</h2>
+    <ul class="edu">
+      <li><div><strong>Especialização em Desenvolvimento Web</strong><br><span>Faculdade Focus</span></div><span class="yr">2025</span></li>
+      <li><div><strong>Pós-graduação em Engenharia de Software</strong><br><span>Faculdade Focus</span></div><span class="yr">2024</span></li>
+      <li><div><strong>Bacharelado em Engenharia da Computação</strong><br><span>Faculdade Estácio de Belém</span></div><span class="yr">2019</span></li>
+    </ul>
+    <h3 style="margin-top:2rem;margin-bottom:.75rem;font-size:1rem">Principais cursos complementares</h3>
+    <ul class="chips">
+      <li>Especialista Java</li><li>Especialista Spring REST</li><li>Especialista JPA</li><li>Microsserviços</li><li>JUnit</li><li>TDD Essencial</li><li>Design Patterns com Java</li><li>Apache Kafka</li><li>RabbitMQ na Prática</li><li>Programação Reativa</li><li>Docker Essencial</li>
+    </ul>
+    <p class="note">Inglês intermediário, em desenvolvimento contínuo.</p>
+  </div>
+</div></section>
+
+<section id="contato"><div class="wrap">
+  <p class="sec-label">Contato</p>
+  <div class="content">
+    <h2>Vamos conversar</h2>
+    <p>Para vagas, propostas ou orçamento de projeto, fale comigo por qualquer canal abaixo.</p>
+    <ul class="contact-list">
+      <li><span class="k">E-mail</span><span class="v" id="c-email">jjrsmedeiros@gmail.com</span><button class="copy" type="button" data-target="c-email">Copiar</button></li>
+      <li><span class="k">WhatsApp</span><span class="v" id="c-zap">(91) 98055-4616</span><button class="copy" type="button" data-target="c-zap">Copiar</button></li>
+      <li><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/josevaldo-junior" target="_blank" rel="noopener">linkedin.com/in/josevaldo-junior</a></li>
+      <li><span class="k">GitHub</span><a class="v" href="https://github.com/josevaldojunior" target="_blank" rel="noopener">github.com/josevaldojunior</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<footer><div class="wrap">Josevaldo Junior · Engenheiro de Software Full Stack · Castanhal, Pará</div></footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target), txt=el.textContent.trim();
+    function done(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar'},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selecionado'}
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+</body>
+</html>
