@@ -3,18 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Josevaldo Junior Portfólio</title>
-<meta name="description" content="Josevaldo Junior, Engenheiro de Software Full Stack com mais de 5 anos de experiência em Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance.">
-<meta property="og:title" content="Josevaldo Junior · Engenheiro de Software Full Stack">
-<meta property="og:description" content="Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance, 100% remoto.">
+<title data-i18n="meta_title">Josevaldo Junior Portfólio</title>
+<meta name="description" content="Josevaldo Junior, Engenheiro de Software Full Stack com mais de 5 anos de experiência em Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance." data-i18n-attr="content:meta_desc">
+<meta property="og:title" content="Josevaldo Junior · Engenheiro de Software Full Stack" data-i18n-attr="content:og_title">
+<meta property="og:description" content="Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance, 100% remoto." data-i18n-attr="content:og_desc">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://josevaldojunior.github.io/">
+<meta property="og:locale" content="pt_BR" data-i18n-attr="content:og_locale">
+<link rel="alternate" hreflang="pt-BR" href="https://josevaldojunior.github.io/?lang=pt">
+<link rel="alternate" hreflang="en" href="https://josevaldojunior.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://josevaldojunior.github.io/">
 <meta name="color-scheme" content="light dark">
 <script>
 (function(){try{var t=localStorage.getItem('tema');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+(function(){
+  var d=document.documentElement, l=null;
+  try{var q=new URLSearchParams(location.search).get('lang');if(q==='pt'||q==='en')l=q;}catch(e){}
+  if(!l){try{var s=localStorage.getItem('idioma');if(s==='pt'||s==='en')l=s;}catch(e){}}
+  if(!l){l=/^pt/i.test(navigator.language||'')?'pt':'en';}
+  d.setAttribute('data-lang',l);
+  if(l==='en'){d.lang='en';d.className+=' i18n-wait';setTimeout(function(){d.classList.remove('i18n-wait')},1500);}
+})();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
 <style>
 
 :root{
@@ -50,11 +62,15 @@ nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;flex-wrap:wra
 nav ul a{color:var(--muted);text-decoration:none}
 nav ul a:hover{color:var(--ink)}
 .nav-right{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
-.theme-switch{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
-.theme-switch button{display:grid;place-items:center;width:30px;height:30px;padding:0;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}
-.theme-switch button:hover{color:var(--ink)}
-.theme-switch button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.theme-switch,.lang-switch{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.theme-switch button,.lang-switch button{display:grid;place-items:center;width:30px;height:30px;padding:0;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}
+.theme-switch button:hover,.lang-switch button:hover{color:var(--ink)}
+.theme-switch button[aria-pressed="true"],.lang-switch button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
 .theme-switch svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.lang-switch button{width:auto;min-width:34px;padding:0 .55rem;font:500 .72rem var(--mono);letter-spacing:.06em}
+.switches{display:flex;align-items:center;gap:.5rem}
+html.i18n-wait body{visibility:hidden}
 
 /* HERO */
 .hero .wrap{padding-block:4.5rem 3.5rem;display:grid;gap:1.75rem}
@@ -106,12 +122,19 @@ p{margin:0 0 1rem;max-width:66ch}
 .proj .ctx{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
 .proj p{color:var(--muted);margin:.35rem 0 0}
 
+.projects.repos{grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem 2rem;margin-top:1.5rem}
+.proj .techs{font-family:var(--mono);font-size:.75rem;color:var(--accent);margin:.6rem 0 0}
+.proj .repo{display:inline-flex;align-items:center;gap:.35rem;margin-top:.6rem;font-size:.9rem;font-weight:600;text-decoration:none}
+.proj .repo:hover{text-decoration:underline}
+.proj .repo svg{width:15px;height:15px}
+
 /* STACK */
 .stack{display:grid;gap:1.4rem}
 .stack h3{font-size:1rem;margin-bottom:.6rem}
 .chips{display:flex;flex-wrap:wrap;gap:.45rem;list-style:none;margin:0;padding:0}
 .chips li{font-family:var(--mono);font-size:.82rem;padding:.3rem .65rem;border-radius:6px;background:var(--surface);border:1px solid var(--line)}
 .chips.core li{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.chips li small{font-size:.72rem;color:var(--muted);margin-left:.35rem}
 .stack .hint{font-size:.88rem;color:var(--muted);margin:.5rem 0 0}
 
 /* EDUCATION */
@@ -143,132 +166,142 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
 }
 @media (prefers-reduced-motion:no-preference){
   .status .dot{animation:pulse 2.4s ease-in-out infinite}
-  body,.svc,.facts div,.c-card,.chips li,.theme-switch{transition:background-color .25s,color .25s,border-color .25s}
+  body,.svc,.facts div,.c-card,.chips li,.theme-switch,.lang-switch{transition:background-color .25s,color .25s,border-color .25s}
   @keyframes pulse{50%{box-shadow:0 0 0 7px transparent}}
 }
 </style>
 </head>
 <body>
-<nav><div class="wrap">
+<nav data-i18n-attr="aria-label:aria_nav" aria-label="Navegação principal"><div class="wrap">
   <a class="logo" href="#topo"><b>&lt;</b>josevaldo.junior<b>/&gt;</b></a>
   <div class="nav-right">
   <ul>
-    <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#experiencia">Experiência</a></li>
-    <li><a href="#freelance">Freelance</a></li>
-    <li><a href="#contato">Contato</a></li>
+    <li><a href="#servicos" data-i18n="nav_services">Serviços</a></li>
+    <li><a href="#experiencia" data-i18n="nav_experience">Experiência</a></li>
+    <li><a href="#freelance" data-i18n="nav_freelance">Freelance</a></li>
+    <li><a href="#projetos" data-i18n="nav_projects">Projetos</a></li>
+    <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
   </ul>
-  <div class="theme-switch" role="group" aria-label="Tema">
-    <button type="button" data-mode="auto" title="Automático (sistema)" aria-label="Tema automático, segue o sistema"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
-    <button type="button" data-mode="light" title="Claro" aria-label="Tema claro"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-    <button type="button" data-mode="dark" title="Escuro" aria-label="Tema escuro"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  <div class="switches">
+  <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-attr="aria-label:aria_lang">
+    <button type="button" data-lang="pt" lang="pt-BR" aria-label="Português" aria-pressed="true">PT</button>
+    <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+  </div>
+  <div class="theme-switch" role="group" aria-label="Tema" data-i18n-attr="aria-label:aria_theme">
+    <button type="button" data-mode="auto" title="Automático (sistema)" aria-label="Tema automático, segue o sistema" data-i18n-attr="title:title_theme_auto;aria-label:aria_theme_auto"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+    <button type="button" data-mode="light" title="Claro" aria-label="Tema claro" data-i18n-attr="title:title_theme_light;aria-label:aria_theme_light"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <button type="button" data-mode="dark" title="Escuro" aria-label="Tema escuro" data-i18n-attr="title:title_theme_dark;aria-label:aria_theme_dark"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  </div>
   </div>
   </div>
 </div></nav>
 
 <header class="hero" id="topo"><div class="wrap">
-  <div class="status"><span class="dot" aria-hidden="true"></span> CLT, PJ ou projetos · 100% remoto</div>
-  <h1>Josevaldo Junior<span class="role">Engenheiro de Software Full Stack</span></h1>
-  <p class="lede">Mais de cinco anos desenvolvendo, sustentando e modernizando sistemas corporativos, com especialidade em <strong>Java, Spring Boot e Angular</strong> e experiência com TypeScript, Node.js, React e Next.js. Analiso cada produto para propor a tecnologia e a arquitetura que ele realmente precisa.</p>
+  <div class="status"><span class="dot" aria-hidden="true"></span> <span data-i18n="hero_status">CLT, PJ ou projetos · 100% remoto</span></div>
+  <h1>Josevaldo Junior<span class="role" data-i18n="hero_role">Engenheiro de Software Full Stack</span></h1>
+  <p class="lede" data-i18n-html="hero_lede">Mais de cinco anos desenvolvendo, sustentando e modernizando sistemas corporativos, com especialidade em <strong>Java, Spring Boot e Angular</strong> e experiência com TypeScript, Node.js, React e Next.js. Analiso cada produto para propor a tecnologia e a arquitetura que ele realmente precisa.</p>
   <div class="ctas">
-    <a class="btn primary" href="#contato">Entrar em contato</a>
-    <a class="btn ghost" href="#experiencia">Ver experiência</a>
+    <a class="btn primary" href="#contato" data-i18n="hero_cta_contact">Entrar em contato</a>
+    <a class="btn ghost" href="#experiencia" data-i18n="hero_cta_exp">Ver experiência</a>
   </div>
   <dl class="facts">
-    <div><dt>Experiência</dt><dd>5+ anos</dd></div>
-    <div><dt>Último nível</dt><dd>Sênior</dd></div>
-    <div><dt>Regime</dt><dd>100% remoto</dd></div>
-    <div><dt>Base</dt><dd>Castanhal, PA</dd></div>
+    <div><dt data-i18n="fact_exp_k">Experiência</dt><dd data-i18n="fact_exp_v">5+ anos</dd></div>
+    <div><dt data-i18n="fact_lvl_k">Último nível</dt><dd data-i18n="fact_lvl_v">Sênior</dd></div>
+    <div><dt data-i18n="fact_mode_k">Regime</dt><dd data-i18n="fact_mode_v">100% remoto</dd></div>
+    <div><dt data-i18n="fact_base_k">Base</dt><dd data-i18n="fact_base_v">Castanhal, PA</dd></div>
   </dl>
 </div></header>
 
 <section id="sobre"><div class="wrap">
-  <p class="sec-label">Sobre</p>
+  <p class="sec-label" data-i18n="about_label">Sobre</p>
   <div class="content">
-    <h2>Sistemas que precisam funcionar todos os dias</h2>
-    <p>Sou formado em Engenharia da Computação, com pós-graduações em Engenharia de Software e Desenvolvimento Web. Comecei como Trainee e cheguei a Pleno na FADESP, alocado na SEFA-PA, atuei como Pleno na SEFAZ-PE e, mais recentemente, como Sênior na Accenture.</p>
-    <p>Já trabalhei em sistemas fiscais, judiciais, financeiros, educacionais e de gestão de academias. Atuo em todo o ciclo: análise de requisitos, definição da solução, desenvolvimento, testes automatizados e sustentação, em contato direto com as áreas de negócio, arquitetura e infraestrutura.</p>
-    <p>Não parto de uma tecnologia fixa. Antes de desenvolver, entendo o problema, o volume de uso, a equipe e os sistemas existentes, e então recomendo a linguagem, o framework e a arquitetura mais adequados para o cliente e o produto.</p>
-    <p>Uso IA no dia a dia (Cursor, Claude, ChatGPT, GitHub Copilot e agentes) para analisar código legado, avaliar o impacto de mudanças e acelerar testes, sempre revisando e validando o que é gerado.</p>
+    <h2 data-i18n="about_title">Sistemas que precisam funcionar todos os dias</h2>
+    <p data-i18n="about_p1">Sou formado em Engenharia da Computação, com pós-graduações em Engenharia de Software e Desenvolvimento Web. Comecei como Trainee e cheguei a Pleno na FADESP, alocado na SEFA-PA, atuei como Pleno na SEFAZ-PE e, mais recentemente, como Sênior na Accenture.</p>
+    <p data-i18n="about_p_highlights">Entre as entregas de destaque estão a migração do PRT para microsserviços, o Consulta Contencioso, construído a partir da engenharia reversa de um sistema em VB6, e a adequação ao CNPJ alfanumérico com apoio de IA.</p>
+    <p data-i18n="about_p2">Já trabalhei em sistemas fiscais, judiciais, financeiros, educacionais e de gestão de academias. Atuo em todo o ciclo: análise de requisitos, definição da solução, desenvolvimento, testes automatizados e sustentação, em contato direto com as áreas de negócio, arquitetura e infraestrutura.</p>
+    <p data-i18n="about_p3">Não parto de uma tecnologia fixa. Antes de desenvolver, entendo o problema, o volume de uso, a equipe e os sistemas existentes, e então recomendo a linguagem, o framework e a arquitetura mais adequados para o cliente e o produto.</p>
+    <p data-i18n="about_p4">Uso IA no dia a dia (Cursor, Claude, ChatGPT, GitHub Copilot e agentes) para analisar código legado, avaliar o impacto de mudanças e acelerar testes, sempre revisando e validando o que é gerado.</p>
   </div>
 </div></section>
 
 <section id="servicos"><div class="wrap">
-  <p class="sec-label">Serviços</p>
+  <p class="sec-label" data-i18n="svc_label">Serviços</p>
   <div class="content">
-    <h2>Como posso ajudar seu projeto</h2>
+    <h2 data-i18n="svc_title">Como posso ajudar seu projeto</h2>
     <div class="services">
       <article class="svc">
         <span class="tag">Java · Node.js · Angular · React</span>
-        <h3>Desenvolvimento de sistemas web</h3>
-        <p>Novas funcionalidades e módulos completos, do back-end à interface.</p>
+        <h3 data-i18n="svc1_title">Desenvolvimento de sistemas web</h3>
+        <p data-i18n="svc1_desc">Novas funcionalidades e módulos completos, do back-end à interface.</p>
       </article>
       <article class="svc">
-        <span class="tag">REST · microsserviços</span>
-        <h3>APIs e integração entre sistemas</h3>
-        <p>Criação e consumo de APIs REST e integração entre aplicações novas e existentes.</p>
+        <span class="tag" data-i18n="svc2_tag">REST · microsserviços</span>
+        <h3 data-i18n="svc2_title">APIs e integração entre sistemas</h3>
+        <p data-i18n="svc2_desc">Criação e consumo de APIs REST e integração entre aplicações novas e existentes.</p>
       </article>
       <article class="svc">
-        <span class="tag">legado · Java EE</span>
-        <h3>Sustentação e modernização</h3>
-        <p>Correções, melhorias e migração de módulos legados sem parar a operação.</p>
+        <span class="tag" data-i18n="svc3_tag">legado · Java EE</span>
+        <h3 data-i18n="svc3_title">Sustentação e modernização</h3>
+        <p data-i18n="svc3_desc">Correções, melhorias e migração de módulos legados sem parar a operação.</p>
       </article>
       <article class="svc">
         <span class="tag">Oracle · SQL · PL/SQL</span>
-        <h3>Banco de dados e regras de negócio</h3>
-        <p>Persistência, consultas e rotinas no banco relacional.</p>
+        <h3 data-i18n="svc4_title">Banco de dados e regras de negócio</h3>
+        <p data-i18n="svc4_desc">Persistência, consultas e rotinas no banco relacional.</p>
       </article>
       <article class="svc">
-        <span class="tag">stack · arquitetura</span>
-        <h3>Escolha de tecnologia e arquitetura</h3>
-        <p>Análise do produto e recomendação da stack e da arquitetura mais adequadas, de um monólito simples a microsserviços com mensageria.</p>
+        <span class="tag" data-i18n="svc5_tag">stack · arquitetura</span>
+        <h3 data-i18n="svc5_title">Escolha de tecnologia e arquitetura</h3>
+        <p data-i18n="svc5_desc">Análise do produto e recomendação da stack e da arquitetura mais adequadas, de um monólito simples a microsserviços com mensageria.</p>
       </article>
     </div>
-    <p class="note">Atendo empresas como desenvolvedor contratado (CLT ou PJ) e também como freelancer.</p>
+    <p class="note" data-i18n="svc_note">Atendo empresas como desenvolvedor contratado (CLT ou PJ) e também como freelancer.</p>
   </div>
 </div></section>
 
 <section id="experiencia"><div class="wrap">
-  <p class="sec-label">Experiência</p>
+  <p class="sec-label" data-i18n="exp_label">Experiência</p>
   <div class="content">
-    <h2>Experiência CLT</h2>
+    <h2 data-i18n="exp_title">Experiência CLT</h2>
     <ol class="timeline" reversed>
       <li class="job">
-        <div class="when">set/2025 – set/2026</div>
+        <div class="when" data-i18n="job1_when">set/2025 – set/2026</div>
         <div>
-          <h3>Analista de Sistemas <span class="lvl">Sênior</span></h3>
-          <p class="org">Accenture do Brasil · remoto</p>
+          <h3><span data-i18n="job1_title">Analista de Sistemas</span> <span class="lvl" data-i18n="job1_lvl">Sênior</span></h3>
+          <p class="org" data-i18n="job1_org">Accenture do Brasil · remoto</p>
           <ul>
-            <li>Conduziu a adequação de sistemas e regras de negócio ao novo formato alfanumérico do CNPJ, considerando validações, integrações e impactos nas aplicações.</li>
-            <li>Implementou evoluções no back-end e no front-end com Java, Spring Boot e Angular.</li>
-            <li>Desenvolveu e ajustou APIs REST para suportar o novo formato do CNPJ.</li>
-            <li>Criou testes automatizados e analisou impactos técnicos e funcionais das mudanças.</li>
+            <li data-i18n="job1_b1">Conduziu a adequação de sistemas e regras de negócio ao novo formato alfanumérico do CNPJ, preparando validações, integrações e aplicações dependentes para o novo padrão da Receita Federal.</li>
+            <li data-i18n="job1_b2">Implementou as alterações no back-end e no front-end com Java, Spring Boot e Angular e adaptou APIs REST ao novo formato, preservando a compatibilidade com os sistemas consumidores.</li>
+            <li data-i18n="job1_b3">Utilizou ferramentas de IA para mapear os pontos de alteração no código e analisar impactos, tornando a análise técnica mais rápida e abrangente.</li>
+            <li data-i18n="job1_b4">Criou testes automatizados para os cenários do novo formato, reduzindo o risco de regressões.</li>
+            <li data-i18n="job1_b5">Atuou com mensageria assíncrona (Apache Kafka e RabbitMQ) e Docker, em ambiente com Kubernetes e Microsoft Azure.</li>
           </ul>
         </div>
       </li>
       <li class="job">
-        <div class="when">nov/2022 – dez/2025</div>
+        <div class="when" data-i18n="job2_when">nov/2022 – dez/2025</div>
         <div>
-          <h3>Desenvolvedor de Sistemas <span class="lvl">Pleno</span></h3>
-          <p class="org">SEFAZ-PE · remoto</p>
+          <h3><span data-i18n="job2_title">Desenvolvedor de Sistemas</span> <span class="lvl" data-i18n="job2_lvl">Pleno</span></h3>
+          <p class="org" data-i18n="job2_org">SEFAZ-PE · remoto</p>
           <ul>
-            <li>Desenvolveu, sustentou e evoluiu sistemas de protocolos e documentos fiscais eletrônicos da administração pública.</li>
-            <li>Modernizou módulos legados em Java EE para microsserviços com Spring Boot e Angular.</li>
-            <li>Implementou APIs REST, serviços e integrações, preservando a comunicação com os sistemas existentes.</li>
-            <li>Desenvolveu testes com JUnit e Mockito e participou de code review e integração contínua.</li>
+            <li data-i18n="job2_b1">Migrou o PRT, sistema de protocolos digitais integrado a diversos sistemas da secretaria, de Java EE para microsserviços com Spring Boot e Angular, baseado em tecnologias open source.</li>
+            <li data-i18n="job2_b2">Com a nova arquitetura, viabilizou deploys independentes, monitoramento das aplicações e manutenção mais simples.</li>
+            <li data-i18n="job2_b3">Otimizou consultas e o acesso a dados, melhorando o desempenho do sistema.</li>
+            <li data-i18n="job2_b4">Sustentou aplicações legadas em Java EE, com EJB, JSF, PrimeFaces e JSP.</li>
+            <li data-i18n="job2_b5">Desenvolveu testes com JUnit e Mockito e participou de code review, integração contínua e decisões de arquitetura.</li>
           </ul>
         </div>
       </li>
       <li class="job">
-        <div class="when">jul/2021 – fev/2023</div>
+        <div class="when" data-i18n="job3_when">jul/2021 – fev/2023</div>
         <div>
-          <h3>Analista de Desenvolvimento de Sistemas <span class="lvl">Trainee → Pleno</span></h3>
-          <p class="org">FADESP · alocado na SEFA-PA</p>
+          <h3><span data-i18n="job3_title">Analista de Desenvolvimento de Sistemas</span> <span class="lvl" data-i18n="job3_lvl">Trainee → Pleno</span></h3>
+          <p class="org" data-i18n="job3_org">FADESP · alocado na SEFA-PA</p>
           <ul>
-            <li>Desenvolveu, sustentou e evoluiu sistemas internos e de documentos fiscais eletrônicos.</li>
-            <li>Implementou APIs REST e microsserviços com Java e Spring Boot, integrados a aplicações Angular.</li>
-            <li>Desenvolveu persistência e acesso a dados com Oracle, SQL, PL/SQL, JPA e Hibernate.</li>
-            <li>Criou testes com JUnit e Mockito e atuou na integração contínua com Maven, GitLab e Jenkins.</li>
+            <li data-i18n="job3_b1">Desenvolveu do zero o Consulta Contencioso, sistema web da SEFA-PA para consulta de processos do contencioso tributário, com Java, Spring Boot e Angular.</li>
+            <li data-i18n="job3_b2">Realizou a engenharia reversa de um sistema interno legado em VB6, sem documentação, para levantar as regras de negócio e levá-las à nova aplicação.</li>
+            <li data-i18n="job3_b3">Otimizou consultas SQL e PL/SQL no Oracle e implementou a conversão de arquivos e dados do sistema legado.</li>
+            <li data-i18n="job3_b4">Criou testes com JUnit e Mockito e atuou na integração contínua com Maven, GitLab e Jenkins.</li>
           </ul>
         </div>
       </li>
@@ -277,46 +310,76 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
 </div></section>
 
 <section id="freelance"><div class="wrap">
-  <p class="sec-label">Freelance</p>
+  <p class="sec-label" data-i18n="fr_label">Freelance</p>
   <div class="content">
-    <h2>Projetos como freelancer</h2>
-    <p>Além dos vínculos CLT, atuei como freelancer em projetos para empresas de diferentes setores.</p>
+    <h2 data-i18n="fr_title">Projetos como freelancer</h2>
+    <p data-i18n="fr_intro">Além dos vínculos CLT, atuei como freelancer em projetos para empresas de diferentes setores.</p>
     <div class="projects freelance">
       <article class="proj">
-        <span class="ctx">Judiciário</span>
-        <h3>Sistemas de Tribunal de Justiça</h3>
-        <p>Desenvolvimento e manutenção de sistemas judiciais de um tribunal estadual.</p>
+        <span class="ctx" data-i18n="fr1_ctx">Judiciário</span>
+        <h3 data-i18n="fr1_title">Sistemas de Tribunal de Justiça</h3>
+        <p data-i18n="fr1_desc">Desenvolvimento e manutenção de sistemas judiciais de um tribunal estadual.</p>
       </article>
       <article class="proj">
-        <span class="ctx">Financeiro</span>
-        <h3>Cooperativa de crédito</h3>
-        <p>Atuação em sistemas de uma das maiores cooperativas de crédito do país.</p>
+        <span class="ctx" data-i18n="fr2_ctx">Financeiro</span>
+        <h3 data-i18n="fr2_title">Cooperativa de crédito</h3>
+        <p data-i18n="fr2_desc">Atuação em sistemas de uma das maiores cooperativas de crédito do país.</p>
       </article>
       <article class="proj">
-        <span class="ctx">Financeiro</span>
-        <h3>Banco público regional</h3>
-        <p>Atuação em sistemas de um banco público de desenvolvimento regional.</p>
+        <span class="ctx" data-i18n="fr3_ctx">Financeiro</span>
+        <h3 data-i18n="fr3_title">Banco público regional</h3>
+        <p data-i18n="fr3_desc">Atuação em sistemas de um banco público de desenvolvimento regional.</p>
       </article>
       <article class="proj">
-        <span class="ctx">Educação</span>
-        <h3>Grupo educacional</h3>
-        <p>Desenvolvimento Full Stack em sistemas de um grande grupo de educação.</p>
+        <span class="ctx" data-i18n="fr4_ctx">Educação</span>
+        <h3 data-i18n="fr4_title">Grupo educacional</h3>
+        <p data-i18n="fr4_desc">Desenvolvimento Full Stack em sistemas de um grande grupo de educação.</p>
       </article>
       <article class="proj">
-        <span class="ctx">Fitness</span>
-        <h3>Plataforma de gestão para academias</h3>
-        <p>Evolução e sustentação dos serviços da plataforma, com cadastro de alunos, treinos e CRM.</p>
+        <span class="ctx" data-i18n="fr5_ctx">Fitness</span>
+        <h3 data-i18n="fr5_title">Plataforma de gestão para academias</h3>
+        <p data-i18n="fr5_desc">Evolução e sustentação dos serviços da plataforma, com cadastro de alunos, treinos e CRM.</p>
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<section id="projetos"><div class="wrap">
+  <p class="sec-label" data-i18n="proj_label">Projetos</p>
+  <div class="content">
+    <h2 data-i18n="proj_title">Projetos no GitHub</h2>
+    <div class="projects repos">
+      <article class="proj">
+        <span class="ctx">GitHub</span>
+        <h3>sistema-rh</h3>
+        <p data-i18n="proj1_desc">Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.</p>
+        <p class="techs">Java · Spring Boot · Spring Cloud · Docker</p>
+        <a class="repo" href="https://github.com/josevaldojunior/sistema-rh" target="_blank" rel="noopener"><span data-i18n="proj_repo1">Ver repositório</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </article>
+      <article class="proj">
+        <span class="ctx">GitHub</span>
+        <h3>pedido</h3>
+        <p data-i18n="proj2_desc">Gestão de pedidos com API Spring Boot, front-end Angular 16 com Angular Material e MySQL.</p>
+        <p class="techs">Java · Spring Boot · Angular · MySQL</p>
+        <a class="repo" href="https://github.com/josevaldojunior/pedido" target="_blank" rel="noopener"><span data-i18n="proj_repo2">Ver repositório</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </article>
+      <article class="proj">
+        <span class="ctx">GitHub</span>
+        <h3>adote-pet</h3>
+        <p data-i18n="proj3_desc">Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.</p>
+        <p class="techs">Java · Spring Boot · React · MySQL</p>
+        <a class="repo" href="https://github.com/josevaldojunior/adote-pet" target="_blank" rel="noopener"><span data-i18n="proj_repo3">Ver repositório</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </article>
     </div>
   </div>
 </div></section>
 
 <section id="stack"><div class="wrap">
-  <p class="sec-label">Tecnologias</p>
+  <p class="sec-label" data-i18n="stack_label">Tecnologias</p>
   <div class="content stack">
-    <h2>Competências técnicas</h2>
+    <h2 data-i18n="stack_title">Competências técnicas</h2>
     <div>
-      <h3>Linguagens</h3>
+      <h3 data-i18n="stack_lang">Linguagens</h3>
       <ul class="chips core">
         <li>Java 8 · 11 · 17 · 21</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>PL/SQL</li>
       </ul>
@@ -324,7 +387,7 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
     <div>
       <h3>Back-end</h3>
       <ul class="chips core">
-        <li>Spring Boot</li><li>Node.js</li><li>Java EE</li><li>Spring Data</li><li>APIs REST</li><li>Microsserviços</li><li>WebFlux</li>
+        <li>Spring Boot</li><li>Node.js</li><li>Java EE</li><li>EJB</li><li>JSF</li><li>PrimeFaces</li><li>Spring Data</li><li data-i18n="stack_rest">APIs REST</li><li data-i18n="stack_ms">Microsserviços</li><li>WebFlux</li>
       </ul>
     </div>
     <div>
@@ -334,60 +397,372 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
       </ul>
     </div>
     <div>
-      <h3>Arquitetura, integração e segurança</h3>
+      <h3 data-i18n="stack_arch">Arquitetura, integração e segurança</h3>
       <ul class="chips">
         <li>DDD</li><li>SOLID</li><li>Kafka</li><li>RabbitMQ</li><li>JMS</li><li>Redis</li><li>Spring Security</li><li>JWT</li>
       </ul>
     </div>
     <div>
-      <h3>Bancos de dados</h3>
+      <h3 data-i18n="stack_db">Bancos de dados</h3>
       <ul class="chips">
         <li>Oracle</li><li>PostgreSQL</li><li>MySQL</li><li>DB2</li><li>MongoDB</li><li>JPA / Hibernate</li>
       </ul>
     </div>
     <div>
-      <h3>Qualidade e entrega</h3>
+      <h3 data-i18n="stack_qa">Qualidade e entrega</h3>
       <ul class="chips">
-        <li>JUnit</li><li>Mockito</li><li>Code review</li><li>Git</li><li>Maven</li><li>Docker</li><li>Jenkins</li><li>GitLab CI/CD</li><li>SonarQube</li>
+        <li>JUnit</li><li>Mockito</li><li data-i18n="stack_cr">Code review</li><li>Git</li><li>Maven</li><li>Docker</li><li>Kubernetes</li><li>Microsoft Azure</li><li>Jenkins</li><li>GitLab CI/CD</li><li>SonarQube</li>
       </ul>
     </div>
   </div>
 </div></section>
 
 <section id="formacao"><div class="wrap">
-  <p class="sec-label">Formação</p>
+  <p class="sec-label" data-i18n="edu_label">Formação</p>
   <div class="content">
-    <h2>Formação acadêmica</h2>
+    <h2 data-i18n="edu_title">Formação acadêmica</h2>
     <ul class="edu">
-      <li><div><strong>Especialização em Desenvolvimento Web</strong><br><span>Faculdade Focus</span></div><span class="yr">2025</span></li>
-      <li><div><strong>Pós-graduação em Engenharia de Software</strong><br><span>Faculdade Focus</span></div><span class="yr">2024</span></li>
-      <li><div><strong>Bacharelado em Engenharia da Computação</strong><br><span>Faculdade Estácio de Belém</span></div><span class="yr">2019</span></li>
+      <li><div><strong data-i18n="edu1">Especialização em Desenvolvimento Web</strong><br><span>Faculdade Focus</span></div><span class="yr">2025</span></li>
+      <li><div><strong data-i18n="edu2">Pós-graduação em Engenharia de Software</strong><br><span>Faculdade Focus</span></div><span class="yr">2024</span></li>
+      <li><div><strong data-i18n="edu3">Bacharelado em Engenharia da Computação</strong><br><span>IESAM · Instituto de Estudos Superiores da Amazônia</span></div><span class="yr">2019</span></li>
     </ul>
-    <h3 style="margin-top:2rem;margin-bottom:.75rem;font-size:1rem">Principais cursos complementares</h3>
+    <h3 style="margin-top:2rem;margin-bottom:.75rem;font-size:1rem" data-i18n="courses_title">Principais cursos complementares</h3>
     <ul class="chips">
-      <li>Especialista Java</li><li>Especialista Spring REST</li><li>Especialista JPA</li><li>Microsserviços</li><li>JUnit</li><li>TDD Essencial</li><li>Design Patterns com Java</li><li>Apache Kafka</li><li>RabbitMQ na Prática</li><li>Programação Reativa</li><li>Docker Essencial</li>
+      <li><span data-i18n="course1">Especialização em Microsserviços</span><small>AlgaWorks · 2026</small></li>
+      <li><span data-i18n="course2">Imersão Docker</span><small>AlgaWorks · 2025</small></li>
+      <li><span data-i18n="course3">Design Patterns com Java</span><small>AlgaWorks · 2024</small></li>
+      <li><span data-i18n="course4">Especialista Java</span><small>AlgaWorks · 2023</small></li>
+      <li><span data-i18n="course5">Programação Reativa com Spring WebFlux</span><small>Udemy · 2023</small></li>
+      <li><span data-i18n="course6">Apache Kafka</span><small>Udemy · 2023</small></li>
+      <li><span data-i18n="course7">RabbitMQ na Prática</span><small>Udemy · 2023</small></li>
+      <li><span data-i18n="course8">Especialista JPA</span><small>AlgaWorks · 2022</small></li>
+      <li><span data-i18n="course9">TDD Essencial</span><small>AlgaWorks · 2022</small></li>
+      <li><span data-i18n="course10">Testes Unitários com JUnit</span><small>AlgaWorks · 2021</small></li>
+      <li><span data-i18n="course11">Especialista Spring REST</span><small>AlgaWorks · 2021</small></li>
     </ul>
-    <p class="note">Inglês avançado, em desenvolvimento contínuo.</p>
+    <p class="note" data-i18n="edu_english">Inglês avançado, em desenvolvimento contínuo.</p>
   </div>
 </div></section>
 
 <section id="contato"><div class="wrap">
-  <p class="sec-label">Contato</p>
+  <p class="sec-label" data-i18n="contact_label">Contato</p>
   <div class="content">
-    <h2>Vamos conversar</h2>
-    <p>Para propostas ou orçamento de projetos, fale comigo pelo canal que preferir.</p>
+    <h2 data-i18n="contact_title">Vamos conversar</h2>
+    <p data-i18n="contact_intro">Para propostas ou orçamento de projetos, fale comigo pelo canal que preferir.</p>
     <ul class="contact-grid">
-      <li><a class="c-card" href="https://wa.me/5591980554616?text=Ol%C3%A1%2C%20Josevaldo!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener"><span class="c-icon"><svg class="" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.5 9.5 0 0 1-4.84-1.33l-.35-.21-3.6.94.96-3.5-.23-.36a9.46 9.46 0 0 1-1.45-5.04c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.71 2.79a9.43 9.43 0 0 1 2.78 6.71c0 5.24-4.26 9.5-9.47 9.5zm8.07-17.57A11.33 11.33 0 0 0 12.05.5C5.76.5.65 5.61.65 11.9c0 2.01.52 3.97 1.52 5.7L.55 23.5l6.04-1.58a11.4 11.4 0 0 0 5.45 1.39h.01c6.28 0 11.4-5.11 11.4-11.4 0-3.05-1.19-5.91-3.33-8.07z"/></svg></span><span class="c-text"><span class="c-k">WhatsApp</span><span class="c-v">Conversar agora</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li><button class="c-card" type="button" id="copy-email" data-email="jjrsmedeiros@gmail.com" aria-label="Copiar e-mail jjrsmedeiros@gmail.com"><span class="c-icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="c-text"><span class="c-k" id="copy-email-k">E-mail · copiar</span><span class="c-v">jjrsmedeiros@gmail.com</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg></button></li>
-      <li><a class="c-card" href="https://www.linkedin.com/in/josevaldo-junior" target="_blank" rel="noopener"><span class="c-icon"><svg class="" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span><span class="c-text"><span class="c-k">LinkedIn</span><span class="c-v">josevaldo-junior</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
-      <li><a class="c-card" href="https://github.com/josevaldojunior" target="_blank" rel="noopener"><span class="c-icon"><svg class="" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg></span><span class="c-text"><span class="c-k">GitHub</span><span class="c-v">josevaldojunior</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a class="c-card" href="https://wa.me/5591980554616?text=Ol%C3%A1%2C%20Josevaldo!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." data-i18n-attr="href:wa_href" target="_blank" rel="noopener"><span class="c-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.5 9.5 0 0 1-4.84-1.33l-.35-.21-3.6.94.96-3.5-.23-.36a9.46 9.46 0 0 1-1.45-5.04c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.71 2.79a9.43 9.43 0 0 1 2.78 6.71c0 5.24-4.26 9.5-9.47 9.5zm8.07-17.57A11.33 11.33 0 0 0 12.05.5C5.76.5.65 5.61.65 11.9c0 2.01.52 3.97 1.52 5.7L.55 23.5l6.04-1.58a11.4 11.4 0 0 0 5.45 1.39h.01c6.28 0 11.4-5.11 11.4-11.4 0-3.05-1.19-5.91-3.33-8.07z"/></svg></span><span class="c-text"><span class="c-k">WhatsApp</span><span class="c-v" data-i18n="contact_wa">Conversar agora</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><button class="c-card" type="button" id="copy-email" data-email="jjrsmedeiros@gmail.com" aria-label="Copiar e-mail jjrsmedeiros@gmail.com" data-i18n-attr="aria-label:aria_copy_email"><span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="c-text"><span class="c-k" id="copy-email-k" data-i18n="contact_email_k">E-mail · copiar</span><span class="c-v">jjrsmedeiros@gmail.com</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg></button></li>
+      <li><a class="c-card" href="https://www.linkedin.com/in/josevaldo-junior" target="_blank" rel="noopener"><span class="c-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span><span class="c-text"><span class="c-k">LinkedIn</span><span class="c-v">josevaldo-junior</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a class="c-card" href="https://github.com/josevaldojunior" target="_blank" rel="noopener"><span class="c-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg></span><span class="c-text"><span class="c-k">GitHub</span><span class="c-v">josevaldojunior</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
     </ul>
   </div>
 </div></section>
 
-<footer><div class="wrap">Josevaldo Junior · Engenheiro de Software Full Stack · Castanhal, Pará</div></footer>
+<footer><div class="wrap">Josevaldo Junior · <span data-i18n="footer_role">Engenheiro de Software Full Stack</span> · <span data-i18n="footer_place">Castanhal, Pará</span></div></footer>
 
 <script>
+var i18n = {
+ "pt": {
+  "meta_title": "Josevaldo Junior Portfólio",
+  "meta_desc": "Josevaldo Junior, Engenheiro de Software Full Stack com mais de 5 anos de experiência em Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance.",
+  "og_title": "Josevaldo Junior · Engenheiro de Software Full Stack",
+  "og_desc": "Java, Spring Boot, Angular, Node.js e React. Disponível para CLT, PJ e freelance, 100% remoto.",
+  "og_locale": "pt_BR",
+  "aria_nav": "Navegação principal",
+  "aria_theme": "Tema",
+  "aria_theme_auto": "Tema automático, segue o sistema",
+  "title_theme_auto": "Automático (sistema)",
+  "aria_theme_light": "Tema claro",
+  "title_theme_light": "Claro",
+  "aria_theme_dark": "Tema escuro",
+  "title_theme_dark": "Escuro",
+  "aria_lang": "Idioma",
+  "wa_href": "https://wa.me/5591980554616?text=Ol%C3%A1%2C%20Josevaldo!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar.",
+  "aria_copy_email": "Copiar e-mail jjrsmedeiros@gmail.com",
+  "email_copied": "E-mail copiado",
+  "email_copy_fallback": "Copie: ",
+  "repo_aria": "Repositório no GitHub",
+  "nav_services": "Serviços",
+  "nav_experience": "Experiência",
+  "nav_freelance": "Freelance",
+  "nav_projects": "Projetos",
+  "nav_contact": "Contato",
+  "hero_status": "CLT, PJ ou projetos · 100% remoto",
+  "hero_role": "Engenheiro de Software Full Stack",
+  "hero_lede": "Mais de cinco anos desenvolvendo, sustentando e modernizando sistemas corporativos, com especialidade em <strong>Java, Spring Boot e Angular<\/strong> e experiência com TypeScript, Node.js, React e Next.js. Analiso cada produto para propor a tecnologia e a arquitetura que ele realmente precisa.",
+  "hero_cta_contact": "Entrar em contato",
+  "hero_cta_exp": "Ver experiência",
+  "fact_exp_k": "Experiência",
+  "fact_exp_v": "5+ anos",
+  "fact_lvl_k": "Último nível",
+  "fact_lvl_v": "Sênior",
+  "fact_mode_k": "Regime",
+  "fact_mode_v": "100% remoto",
+  "fact_base_k": "Base",
+  "fact_base_v": "Castanhal, PA",
+  "about_label": "Sobre",
+  "about_title": "Sistemas que precisam funcionar todos os dias",
+  "about_p1": "Sou formado em Engenharia da Computação, com pós-graduações em Engenharia de Software e Desenvolvimento Web. Comecei como Trainee e cheguei a Pleno na FADESP, alocado na SEFA-PA, atuei como Pleno na SEFAZ-PE e, mais recentemente, como Sênior na Accenture.",
+  "about_p_highlights": "Entre as entregas de destaque estão a migração do PRT para microsserviços, o Consulta Contencioso, construído a partir da engenharia reversa de um sistema em VB6, e a adequação ao CNPJ alfanumérico com apoio de IA.",
+  "about_p2": "Já trabalhei em sistemas fiscais, judiciais, financeiros, educacionais e de gestão de academias. Atuo em todo o ciclo: análise de requisitos, definição da solução, desenvolvimento, testes automatizados e sustentação, em contato direto com as áreas de negócio, arquitetura e infraestrutura.",
+  "about_p3": "Não parto de uma tecnologia fixa. Antes de desenvolver, entendo o problema, o volume de uso, a equipe e os sistemas existentes, e então recomendo a linguagem, o framework e a arquitetura mais adequados para o cliente e o produto.",
+  "about_p4": "Uso IA no dia a dia (Cursor, Claude, ChatGPT, GitHub Copilot e agentes) para analisar código legado, avaliar o impacto de mudanças e acelerar testes, sempre revisando e validando o que é gerado.",
+  "svc_label": "Serviços",
+  "svc_title": "Como posso ajudar seu projeto",
+  "svc1_title": "Desenvolvimento de sistemas web",
+  "svc1_desc": "Novas funcionalidades e módulos completos, do back-end à interface.",
+  "svc2_tag": "REST · microsserviços",
+  "svc2_title": "APIs e integração entre sistemas",
+  "svc2_desc": "Criação e consumo de APIs REST e integração entre aplicações novas e existentes.",
+  "svc3_tag": "legado · Java EE",
+  "svc3_title": "Sustentação e modernização",
+  "svc3_desc": "Correções, melhorias e migração de módulos legados sem parar a operação.",
+  "svc4_title": "Banco de dados e regras de negócio",
+  "svc4_desc": "Persistência, consultas e rotinas no banco relacional.",
+  "svc5_tag": "stack · arquitetura",
+  "svc5_title": "Escolha de tecnologia e arquitetura",
+  "svc5_desc": "Análise do produto e recomendação da stack e da arquitetura mais adequadas, de um monólito simples a microsserviços com mensageria.",
+  "svc_note": "Atendo empresas como desenvolvedor contratado (CLT ou PJ) e também como freelancer.",
+  "exp_label": "Experiência",
+  "exp_title": "Experiência CLT",
+  "job1_when": "set/2025 – set/2026",
+  "job1_title": "Analista de Sistemas",
+  "job1_lvl": "Sênior",
+  "job1_org": "Accenture do Brasil · remoto",
+  "job1_b1": "Conduziu a adequação de sistemas e regras de negócio ao novo formato alfanumérico do CNPJ, preparando validações, integrações e aplicações dependentes para o novo padrão da Receita Federal.",
+  "job1_b2": "Implementou as alterações no back-end e no front-end com Java, Spring Boot e Angular e adaptou APIs REST ao novo formato, preservando a compatibilidade com os sistemas consumidores.",
+  "job1_b3": "Utilizou ferramentas de IA para mapear os pontos de alteração no código e analisar impactos, tornando a análise técnica mais rápida e abrangente.",
+  "job1_b4": "Criou testes automatizados para os cenários do novo formato, reduzindo o risco de regressões.",
+  "job1_b5": "Atuou com mensageria assíncrona (Apache Kafka e RabbitMQ) e Docker, em ambiente com Kubernetes e Microsoft Azure.",
+  "job2_when": "nov/2022 – dez/2025",
+  "job2_title": "Desenvolvedor de Sistemas",
+  "job2_lvl": "Pleno",
+  "job2_org": "SEFAZ-PE · remoto",
+  "job2_b1": "Migrou o PRT, sistema de protocolos digitais integrado a diversos sistemas da secretaria, de Java EE para microsserviços com Spring Boot e Angular, baseado em tecnologias open source.",
+  "job2_b2": "Com a nova arquitetura, viabilizou deploys independentes, monitoramento das aplicações e manutenção mais simples.",
+  "job2_b3": "Otimizou consultas e o acesso a dados, melhorando o desempenho do sistema.",
+  "job2_b4": "Sustentou aplicações legadas em Java EE, com EJB, JSF, PrimeFaces e JSP.",
+  "job2_b5": "Desenvolveu testes com JUnit e Mockito e participou de code review, integração contínua e decisões de arquitetura.",
+  "job3_when": "jul/2021 – fev/2023",
+  "job3_title": "Analista de Desenvolvimento de Sistemas",
+  "job3_lvl": "Trainee → Pleno",
+  "job3_org": "FADESP · alocado na SEFA-PA",
+  "job3_b1": "Desenvolveu do zero o Consulta Contencioso, sistema web da SEFA-PA para consulta de processos do contencioso tributário, com Java, Spring Boot e Angular.",
+  "job3_b2": "Realizou a engenharia reversa de um sistema interno legado em VB6, sem documentação, para levantar as regras de negócio e levá-las à nova aplicação.",
+  "job3_b3": "Otimizou consultas SQL e PL/SQL no Oracle e implementou a conversão de arquivos e dados do sistema legado.",
+  "job3_b4": "Criou testes com JUnit e Mockito e atuou na integração contínua com Maven, GitLab e Jenkins.",
+  "fr_label": "Freelance",
+  "fr_title": "Projetos como freelancer",
+  "fr_intro": "Além dos vínculos CLT, atuei como freelancer em projetos para empresas de diferentes setores.",
+  "fr1_ctx": "Judiciário",
+  "fr1_title": "Sistemas de Tribunal de Justiça",
+  "fr1_desc": "Desenvolvimento e manutenção de sistemas judiciais de um tribunal estadual.",
+  "fr2_ctx": "Financeiro",
+  "fr2_title": "Cooperativa de crédito",
+  "fr2_desc": "Atuação em sistemas de uma das maiores cooperativas de crédito do país.",
+  "fr3_ctx": "Financeiro",
+  "fr3_title": "Banco público regional",
+  "fr3_desc": "Atuação em sistemas de um banco público de desenvolvimento regional.",
+  "fr4_ctx": "Educação",
+  "fr4_title": "Grupo educacional",
+  "fr4_desc": "Desenvolvimento Full Stack em sistemas de um grande grupo de educação.",
+  "fr5_ctx": "Fitness",
+  "fr5_title": "Plataforma de gestão para academias",
+  "fr5_desc": "Evolução e sustentação dos serviços da plataforma, com cadastro de alunos, treinos e CRM.",
+  "proj_label": "Projetos",
+  "proj_title": "Projetos no GitHub",
+  "proj1_desc": "Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.",
+  "proj_repo1": "Ver repositório",
+  "proj2_desc": "Gestão de pedidos com API Spring Boot, front-end Angular 16 com Angular Material e MySQL.",
+  "proj_repo2": "Ver repositório",
+  "proj3_desc": "Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.",
+  "proj_repo3": "Ver repositório",
+  "stack_label": "Tecnologias",
+  "stack_title": "Competências técnicas",
+  "stack_lang": "Linguagens",
+  "stack_rest": "APIs REST",
+  "stack_ms": "Microsserviços",
+  "stack_arch": "Arquitetura, integração e segurança",
+  "stack_db": "Bancos de dados",
+  "stack_qa": "Qualidade e entrega",
+  "stack_cr": "Code review",
+  "edu_label": "Formação",
+  "edu_title": "Formação acadêmica",
+  "edu1": "Especialização em Desenvolvimento Web",
+  "edu2": "Pós-graduação em Engenharia de Software",
+  "edu3": "Bacharelado em Engenharia da Computação",
+  "courses_title": "Principais cursos complementares",
+  "course1": "Especialização em Microsserviços",
+  "course2": "Imersão Docker",
+  "course3": "Design Patterns com Java",
+  "course4": "Especialista Java",
+  "course5": "Programação Reativa com Spring WebFlux",
+  "course6": "Apache Kafka",
+  "course7": "RabbitMQ na Prática",
+  "course8": "Especialista JPA",
+  "course9": "TDD Essencial",
+  "course10": "Testes Unitários com JUnit",
+  "course11": "Especialista Spring REST",
+  "edu_english": "Inglês avançado, em desenvolvimento contínuo.",
+  "contact_label": "Contato",
+  "contact_title": "Vamos conversar",
+  "contact_intro": "Para propostas ou orçamento de projetos, fale comigo pelo canal que preferir.",
+  "contact_wa": "Conversar agora",
+  "contact_email_k": "E-mail · copiar",
+  "footer_role": "Engenheiro de Software Full Stack",
+  "footer_place": "Castanhal, Pará"
+ },
+ "en": {
+  "meta_title": "Josevaldo Junior Portfolio",
+  "meta_desc": "Josevaldo Junior, Full Stack Software Engineer with 5+ years of experience in Java, Spring Boot, Angular, Node.js and React. Available for full-time, contractor and freelance work.",
+  "og_title": "Josevaldo Junior · Full Stack Software Engineer",
+  "og_desc": "Java, Spring Boot, Angular, Node.js and React. Available for full-time, contractor and freelance work, 100% remote.",
+  "og_locale": "en_US",
+  "aria_nav": "Main navigation",
+  "aria_theme": "Theme",
+  "aria_theme_auto": "Automatic theme, follows your system",
+  "title_theme_auto": "Automatic (system)",
+  "aria_theme_light": "Light theme",
+  "title_theme_light": "Light",
+  "aria_theme_dark": "Dark theme",
+  "title_theme_dark": "Dark",
+  "aria_lang": "Language",
+  "wa_href": "https://wa.me/5591980554616?text=Hi%20Josevaldo!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk.",
+  "aria_copy_email": "Copy email jjrsmedeiros@gmail.com",
+  "email_copied": "Email copied",
+  "email_copy_fallback": "Copy: ",
+  "repo_aria": "GitHub repository",
+  "nav_services": "Services",
+  "nav_experience": "Experience",
+  "nav_freelance": "Freelance",
+  "nav_projects": "Projects",
+  "nav_contact": "Contact",
+  "hero_status": "Full-time employment, contractor or freelance projects · 100% remote",
+  "hero_role": "Full Stack Software Engineer",
+  "hero_lede": "Over five years building, maintaining and modernizing enterprise systems, specializing in <strong>Java, Spring Boot and Angular<\/strong>, with hands-on experience in TypeScript, Node.js, React and Next.js. I look at each product to recommend the technology and architecture it actually needs.",
+  "hero_cta_contact": "Get in touch",
+  "hero_cta_exp": "View experience",
+  "fact_exp_k": "Experience",
+  "fact_exp_v": "5+ years",
+  "fact_lvl_k": "Latest level",
+  "fact_lvl_v": "Senior",
+  "fact_mode_k": "Work model",
+  "fact_mode_v": "100% remote",
+  "fact_base_k": "Based in",
+  "fact_base_v": "Castanhal, PA, Brazil",
+  "about_label": "About",
+  "about_title": "Systems that have to work every single day",
+  "about_p1": "I hold a degree in Computer Engineering and postgraduate degrees in Software Engineering and Web Development. I started as a Trainee and grew to Mid-level at FADESP, assigned to SEFA-PA, worked as a Mid-level developer at SEFAZ-PE and, most recently, as a Senior at Accenture.",
+  "about_p_highlights": "Highlights include migrating PRT to microservices, building Consulta Contencioso by reverse-engineering a VB6 system, and adapting systems to the alphanumeric CNPJ with the help of AI.",
+  "about_p2": "I've worked on tax, judicial, financial, education and gym management systems. I cover the whole cycle: requirements analysis, solution design, development, automated testing and support, working closely with business, architecture and infrastructure teams.",
+  "about_p3": "I don't start from a fixed technology. Before building, I look at the problem, the expected load, the team and the existing systems, then recommend the language, framework and architecture that best fit the client and the product.",
+  "about_p4": "I use AI every day (Cursor, Claude, ChatGPT, GitHub Copilot and agents) to analyze legacy code, assess the impact of changes and speed up testing, always reviewing and validating what it produces.",
+  "svc_label": "Services",
+  "svc_title": "How I can help your project",
+  "svc1_title": "Web application development",
+  "svc1_desc": "New features and complete modules, from back end to user interface.",
+  "svc2_tag": "REST · microservices",
+  "svc2_title": "APIs and system integration",
+  "svc2_desc": "Building and consuming REST APIs and integrating new and existing applications.",
+  "svc3_tag": "legacy · Java EE",
+  "svc3_title": "Maintenance and modernization",
+  "svc3_desc": "Fixes, improvements and migration of legacy modules without stopping operations.",
+  "svc4_title": "Databases and business rules",
+  "svc4_desc": "Persistence, queries and routines in relational databases.",
+  "svc5_tag": "stack · architecture",
+  "svc5_title": "Technology and architecture choices",
+  "svc5_desc": "Product analysis and a recommendation for the right stack and architecture, from a simple monolith to microservices with messaging.",
+  "svc_note": "I work with companies as an employee or contractor, and also as a freelancer.",
+  "exp_label": "Experience",
+  "exp_title": "Full-time experience",
+  "job1_when": "Sep 2025 – Sep 2026",
+  "job1_title": "Systems Analyst",
+  "job1_lvl": "Senior",
+  "job1_org": "Accenture do Brasil · remote",
+  "job1_b1": "Led the adaptation of systems and business rules to Brazil's new alphanumeric CNPJ (national business registry ID) format, preparing validations, integrations and dependent applications for the new Federal Revenue Service standard.",
+  "job1_b2": "Implemented back-end and front-end changes with Java, Spring Boot and Angular, and adapted REST APIs to the new format while preserving compatibility with consuming systems.",
+  "job1_b3": "Used AI tools to map required code changes and analyze impact, making technical analysis faster and more thorough.",
+  "job1_b4": "Created automated tests for the new format scenarios, reducing the risk of regressions.",
+  "job1_b5": "Worked with asynchronous messaging (Apache Kafka and RabbitMQ) and Docker, in an environment running Kubernetes and Microsoft Azure.",
+  "job2_when": "Nov 2022 – Dec 2025",
+  "job2_title": "Software Developer",
+  "job2_lvl": "Mid-level",
+  "job2_org": "SEFAZ-PE, Pernambuco State Department of Finance · remote",
+  "job2_b1": "Migrated PRT, a digital protocol (document intake and tracking) system integrated with multiple department systems, from Java EE to microservices with Spring Boot and Angular, built on open-source technologies.",
+  "job2_b2": "The new architecture enabled independent deployments, application monitoring and simpler maintenance.",
+  "job2_b3": "Optimized queries and data access, improving system performance.",
+  "job2_b4": "Maintained legacy Java EE applications built with EJB, JSF, PrimeFaces and JSP.",
+  "job2_b5": "Wrote tests with JUnit and Mockito and took part in code reviews, continuous integration and architecture decisions.",
+  "job3_when": "Jul 2021 – Feb 2023",
+  "job3_title": "Software Development Analyst",
+  "job3_lvl": "Trainee → Mid-level",
+  "job3_org": "FADESP · assigned to SEFA-PA, Pará State Department of Finance",
+  "job3_b1": "Built Consulta Contencioso from scratch, a SEFA-PA web application for looking up tax litigation cases, using Java, Spring Boot and Angular.",
+  "job3_b2": "Reverse-engineered an undocumented legacy VB6 system to extract business rules and carry them into the new application.",
+  "job3_b3": "Optimized SQL and PL/SQL queries on Oracle and implemented file and data conversion from the legacy system.",
+  "job3_b4": "Wrote tests with JUnit and Mockito and worked on CI pipelines with Maven, GitLab and Jenkins.",
+  "fr_label": "Freelance",
+  "fr_title": "Freelance projects",
+  "fr_intro": "Alongside my full-time roles, I have worked as a freelancer on projects for companies across different industries.",
+  "fr1_ctx": "Judiciary",
+  "fr1_title": "State Court systems",
+  "fr1_desc": "Development and maintenance of judicial systems for a state court.",
+  "fr2_ctx": "Finance",
+  "fr2_title": "Credit union",
+  "fr2_desc": "Work on systems for one of Brazil's largest credit unions.",
+  "fr3_ctx": "Finance",
+  "fr3_title": "Regional public bank",
+  "fr3_desc": "Work on systems for a regional public development bank.",
+  "fr4_ctx": "Education",
+  "fr4_title": "Education group",
+  "fr4_desc": "Full stack development on systems for a large education group.",
+  "fr5_ctx": "Fitness",
+  "fr5_title": "Gym management platform",
+  "fr5_desc": "Evolution and support of the platform's services, including member registration, workouts and CRM.",
+  "proj_label": "Projects",
+  "proj_title": "Projects on GitHub",
+  "proj1_desc": "HR system built with Java microservices: API Gateway, Eureka service discovery, user and payroll services communicating through OpenFeign, orchestrated with Docker Compose.",
+  "proj_repo1": "View repository",
+  "proj2_desc": "Order management with a Spring Boot API, Angular 16 + Angular Material front-end and MySQL.",
+  "proj_repo2": "View repository",
+  "proj3_desc": "Pet adoption system with a Spring Boot REST API, React front-end and MySQL.",
+  "proj_repo3": "View repository",
+  "stack_label": "Skills",
+  "stack_title": "Technical skills",
+  "stack_lang": "Languages",
+  "stack_rest": "REST APIs",
+  "stack_ms": "Microservices",
+  "stack_arch": "Architecture, integration and security",
+  "stack_db": "Databases",
+  "stack_qa": "Quality and delivery",
+  "stack_cr": "Code review",
+  "edu_label": "Education",
+  "edu_title": "Education",
+  "edu1": "Specialization in Web Development",
+  "edu2": "Postgraduate degree in Software Engineering",
+  "edu3": "Bachelor's degree in Computer Engineering",
+  "courses_title": "Selected courses",
+  "course1": "Microservices Specialization",
+  "course2": "Docker Immersion",
+  "course3": "Design Patterns with Java",
+  "course4": "Java Specialist",
+  "course5": "Reactive Programming with Spring WebFlux",
+  "course6": "Apache Kafka",
+  "course7": "RabbitMQ in Practice",
+  "course8": "JPA Specialist",
+  "course9": "Essential TDD",
+  "course10": "Unit Testing with JUnit",
+  "course11": "Spring REST Specialist",
+  "edu_english": "Advanced English, continuously improving.",
+  "contact_label": "Contact",
+  "contact_title": "Let's talk",
+  "contact_intro": "For proposals or project quotes, reach out through whichever channel you prefer.",
+  "contact_wa": "Chat now",
+  "contact_email_k": "Email · copy",
+  "footer_role": "Full Stack Software Engineer",
+  "footer_place": "Castanhal, Pará, Brazil"
+ }
+};
 (function(){
   var root=document.documentElement, btns=document.querySelectorAll('.theme-switch button');
   function mark(m){btns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.mode===m ? 'true' : 'false')})}
@@ -400,12 +775,36 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
   mark(root.getAttribute('data-theme')||'auto');
 })();
 (function(){
+  var root=document.documentElement, langBtns=document.querySelectorAll('.lang-switch button');
+  function setLang(l, save){
+    var d=i18n[l]||i18n.pt;
+    root.lang = l==='en' ? 'en' : 'pt-BR';
+    root.setAttribute('data-lang', l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){var v=d[el.getAttribute('data-i18n')]; if(v!=null) el.textContent=v;});
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){var v=d[el.getAttribute('data-i18n-html')]; if(v!=null) el.innerHTML=v;});
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      el.getAttribute('data-i18n-attr').split(';').forEach(function(pair){
+        var p=pair.split(':'); var v=d[p[1]]; if(v!=null) el.setAttribute(p[0], v);
+      });
+    });
+    langBtns.forEach(function(b){b.setAttribute('aria-pressed', b.dataset.lang===l ? 'true' : 'false')});
+    if(save){
+      try{ localStorage.setItem('idioma', l) }catch(e){}
+      try{ var u=new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u.pathname+u.search+u.hash) }catch(e){}
+    }
+    root.classList.remove('i18n-wait');
+  }
+  window.currentLang=function(){return root.getAttribute('data-lang')==='en'?'en':'pt'};
+  langBtns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang, true)})});
+  setLang(window.currentLang(), false);
+})();
+(function(){
   var b=document.getElementById('copy-email'), k=document.getElementById('copy-email-k');
   if(!b) return;
   b.addEventListener('click',function(){
-    var txt=b.dataset.email;
-    function show(m){k.textContent=m;setTimeout(function(){k.textContent='E-mail · copiar'},1800)}
-    try{navigator.clipboard.writeText(txt).then(function(){show('E-mail copiado')},function(){show('Copie: '+txt)})}catch(e){show('Copie: '+txt)}
+    var d=i18n[window.currentLang()], txt=b.dataset.email;
+    function show(m){k.textContent=m;setTimeout(function(){k.textContent=i18n[window.currentLang()].contact_email_k},1800)}
+    try{navigator.clipboard.writeText(txt).then(function(){show(d.email_copied)},function(){show(d.email_copy_fallback+txt)})}catch(e){show(d.email_copy_fallback+txt)}
   });
 })();
 </script>
