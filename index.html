@@ -122,11 +122,7 @@ p{margin:0 0 1rem;max-width:66ch}
 .proj .ctx{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
 .proj p{color:var(--muted);margin:.35rem 0 0}
 
-.projects.repos{grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem 2rem;margin-top:1.5rem}
 .proj .techs{font-family:var(--mono);font-size:.75rem;color:var(--accent);margin:.6rem 0 0}
-.proj .repo{display:inline-flex;align-items:center;gap:.35rem;margin-top:.6rem;font-size:.9rem;font-weight:600;text-decoration:none}
-.proj .repo:hover{text-decoration:underline}
-.proj .repo svg{width:15px;height:15px}
 
 /* STACK */
 .stack{display:grid;gap:1.4rem}
@@ -179,7 +175,6 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
     <li><a href="#servicos" data-i18n="nav_services">Serviços</a></li>
     <li><a href="#experiencia" data-i18n="nav_experience">Experiência</a></li>
     <li><a href="#freelance" data-i18n="nav_freelance">Freelance</a></li>
-    <li><a href="#projetos" data-i18n="nav_projects">Projetos</a></li>
     <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
   </ul>
   <div class="switches">
@@ -340,35 +335,23 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
         <h3 data-i18n="fr5_title">Plataforma de gestão para academias</h3>
         <p data-i18n="fr5_desc">Evolução e sustentação dos serviços da plataforma, com cadastro de alunos, treinos e CRM.</p>
       </article>
-    </div>
-  </div>
-</div></section>
-
-<section id="projetos"><div class="wrap">
-  <p class="sec-label" data-i18n="proj_label">Projetos</p>
-  <div class="content">
-    <h2 data-i18n="proj_title">Projetos no GitHub</h2>
-    <div class="projects repos">
       <article class="proj">
-        <span class="ctx">GitHub</span>
-        <h3>sistema-rh</h3>
-        <p data-i18n="proj1_desc">Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.</p>
+        <span class="ctx" data-i18n="fr6_ctx">Recursos humanos</span>
+        <h3 data-i18n="fr6_title">Sistema de RH</h3>
+        <p data-i18n="fr6_desc">Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.</p>
         <p class="techs">Java · Spring Boot · Spring Cloud · Docker</p>
-        <a class="repo" href="https://github.com/josevaldojunior/sistema-rh" target="_blank" rel="noopener"><span data-i18n="proj_repo1">Ver repositório</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </article>
       <article class="proj">
-        <span class="ctx">GitHub</span>
-        <h3>pedido</h3>
-        <p data-i18n="proj2_desc">Gestão de pedidos com API Spring Boot, front-end Angular 16 com Angular Material e MySQL.</p>
+        <span class="ctx" data-i18n="fr7_ctx">Compras</span>
+        <h3 data-i18n="fr7_title">Pedidos entre compradores e fornecedores</h3>
+        <p data-i18n="fr7_desc">Painel que lista os pedidos com comprador, fornecedor, quantidade de produtos e valor total, e mostra os itens de cada pedido. API REST em Spring Boot com MySQL e front-end em Angular 16 com Angular Material.</p>
         <p class="techs">Java · Spring Boot · Angular · MySQL</p>
-        <a class="repo" href="https://github.com/josevaldojunior/pedido" target="_blank" rel="noopener"><span data-i18n="proj_repo2">Ver repositório</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </article>
       <article class="proj">
-        <span class="ctx">GitHub</span>
-        <h3>adote-pet</h3>
-        <p data-i18n="proj3_desc">Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.</p>
+        <span class="ctx" data-i18n="fr8_ctx">Bem-estar animal</span>
+        <h3 data-i18n="fr8_title">Plataforma de adoção de animais</h3>
+        <p data-i18n="fr8_desc">Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.</p>
         <p class="techs">Java · Spring Boot · React · MySQL</p>
-        <a class="repo" href="https://github.com/josevaldojunior/adote-pet" target="_blank" rel="noopener"><span data-i18n="proj_repo3">Ver repositório</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </article>
     </div>
   </div>
@@ -485,7 +468,6 @@ var i18n = {
   "nav_services": "Serviços",
   "nav_experience": "Experiência",
   "nav_freelance": "Freelance",
-  "nav_projects": "Projetos",
   "nav_contact": "Contato",
   "hero_status": "CLT, PJ ou projetos · 100% remoto",
   "hero_role": "Engenheiro de Software Full Stack",
@@ -569,14 +551,15 @@ var i18n = {
   "fr5_ctx": "Fitness",
   "fr5_title": "Plataforma de gestão para academias",
   "fr5_desc": "Evolução e sustentação dos serviços da plataforma, com cadastro de alunos, treinos e CRM.",
-  "proj_label": "Projetos",
-  "proj_title": "Projetos no GitHub",
-  "proj1_desc": "Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.",
-  "proj_repo1": "Ver repositório",
-  "proj2_desc": "Gestão de pedidos com API Spring Boot, front-end Angular 16 com Angular Material e MySQL.",
-  "proj_repo2": "Ver repositório",
-  "proj3_desc": "Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.",
-  "proj_repo3": "Ver repositório",
+  "fr6_ctx": "Recursos humanos",
+  "fr6_title": "Sistema de RH",
+  "fr6_desc": "Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.",
+  "fr7_ctx": "Compras",
+  "fr7_title": "Pedidos entre compradores e fornecedores",
+  "fr7_desc": "Painel que lista os pedidos com comprador, fornecedor, quantidade de produtos e valor total, e mostra os itens de cada pedido. API REST em Spring Boot com MySQL e front-end em Angular 16 com Angular Material.",
+  "fr8_ctx": "Bem-estar animal",
+  "fr8_title": "Plataforma de adoção de animais",
+  "fr8_desc": "Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.",
   "stack_label": "Tecnologias",
   "stack_title": "Competências técnicas",
   "stack_lang": "Linguagens",
@@ -635,7 +618,6 @@ var i18n = {
   "nav_services": "Services",
   "nav_experience": "Experience",
   "nav_freelance": "Freelance",
-  "nav_projects": "Projects",
   "nav_contact": "Contact",
   "hero_status": "Full-time employment, contractor or freelance projects · 100% remote",
   "hero_role": "Full Stack Software Engineer",
@@ -719,14 +701,15 @@ var i18n = {
   "fr5_ctx": "Fitness",
   "fr5_title": "Gym management platform",
   "fr5_desc": "Evolution and support of the platform's services, including member registration, workouts and CRM.",
-  "proj_label": "Projects",
-  "proj_title": "Projects on GitHub",
-  "proj1_desc": "HR system built with Java microservices: API Gateway, Eureka service discovery, user and payroll services communicating through OpenFeign, orchestrated with Docker Compose.",
-  "proj_repo1": "View repository",
-  "proj2_desc": "Order management with a Spring Boot API, Angular 16 + Angular Material front-end and MySQL.",
-  "proj_repo2": "View repository",
-  "proj3_desc": "Pet adoption system with a Spring Boot REST API, React front-end and MySQL.",
-  "proj_repo3": "View repository",
+  "fr6_ctx": "Human resources",
+  "fr6_title": "HR system",
+  "fr6_desc": "HR system built with Java microservices: API Gateway, Eureka service discovery, user and payroll services communicating through OpenFeign, orchestrated with Docker Compose.",
+  "fr7_ctx": "Procurement",
+  "fr7_title": "Buyer and supplier orders",
+  "fr7_desc": "Dashboard that lists orders with buyer, supplier, product count and total value, and shows the items in each order. Spring Boot REST API with MySQL and an Angular 16 + Angular Material front-end.",
+  "fr8_ctx": "Animal welfare",
+  "fr8_title": "Pet adoption platform",
+  "fr8_desc": "Pet adoption system with a Spring Boot REST API, React front-end and MySQL.",
   "stack_label": "Skills",
   "stack_title": "Technical skills",
   "stack_lang": "Languages",
