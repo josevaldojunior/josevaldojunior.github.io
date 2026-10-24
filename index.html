@@ -122,7 +122,6 @@ p{margin:0 0 1rem;max-width:66ch}
 .proj .ctx{font-family:var(--mono);font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
 .proj p{color:var(--muted);margin:.35rem 0 0}
 
-.proj .techs{font-family:var(--mono);font-size:.75rem;color:var(--accent);margin:.6rem 0 0}
 
 /* STACK */
 .stack{display:grid;gap:1.4rem}
@@ -338,20 +337,17 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
       <article class="proj">
         <span class="ctx" data-i18n="fr6_ctx">Recursos humanos</span>
         <h3 data-i18n="fr6_title">Sistema de RH</h3>
-        <p data-i18n="fr6_desc">Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.</p>
-        <p class="techs">Java · Spring Boot · Spring Cloud · Docker</p>
+        <p data-i18n="fr6_desc">Sistema de folha de pagamento que cadastra funcionários com o valor da hora trabalhada e calcula o pagamento de cada um.</p>
       </article>
       <article class="proj">
         <span class="ctx" data-i18n="fr7_ctx">Compras</span>
         <h3 data-i18n="fr7_title">Pedidos entre compradores e fornecedores</h3>
-        <p data-i18n="fr7_desc">Painel que lista os pedidos com comprador, fornecedor, quantidade de produtos e valor total, e mostra os itens de cada pedido. API REST em Spring Boot com MySQL e front-end em Angular 16 com Angular Material.</p>
-        <p class="techs">Java · Spring Boot · Angular · MySQL</p>
+        <p data-i18n="fr7_desc">Painel que lista cada pedido com comprador, fornecedor, quantidade de produtos e valor total, e mostra os itens que o compõem.</p>
       </article>
       <article class="proj">
         <span class="ctx" data-i18n="fr8_ctx">Bem-estar animal</span>
-        <h3 data-i18n="fr8_title">Plataforma de adoção de animais</h3>
-        <p data-i18n="fr8_desc">Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.</p>
-        <p class="techs">Java · Spring Boot · React · MySQL</p>
+        <h3 data-i18n="fr8_title">Plataforma de adoção de animais resgatados</h3>
+        <p data-i18n="fr8_desc">Plataforma que conecta animais resgatados a pessoas interessadas em adotar, organizando o processo de adoção do cadastro do animal até a chegada ao novo lar.</p>
       </article>
     </div>
   </div>
@@ -553,13 +549,13 @@ var i18n = {
   "fr5_desc": "Evolução e sustentação dos serviços da plataforma, com cadastro de alunos, treinos e CRM.",
   "fr6_ctx": "Recursos humanos",
   "fr6_title": "Sistema de RH",
-  "fr6_desc": "Sistema de RH com microsserviços Java: API Gateway, Eureka, serviços de usuários e folha de pagamento, comunicação via OpenFeign e Docker Compose.",
+  "fr6_desc": "Sistema de folha de pagamento que cadastra funcionários com o valor da hora trabalhada e calcula o pagamento de cada um.",
   "fr7_ctx": "Compras",
   "fr7_title": "Pedidos entre compradores e fornecedores",
-  "fr7_desc": "Painel que lista os pedidos com comprador, fornecedor, quantidade de produtos e valor total, e mostra os itens de cada pedido. API REST em Spring Boot com MySQL e front-end em Angular 16 com Angular Material.",
+  "fr7_desc": "Painel que lista cada pedido com comprador, fornecedor, quantidade de produtos e valor total, e mostra os itens que o compõem.",
   "fr8_ctx": "Bem-estar animal",
-  "fr8_title": "Plataforma de adoção de animais",
-  "fr8_desc": "Sistema de adoção de animais com API REST em Spring Boot, front-end em React e MySQL.",
+  "fr8_title": "Plataforma de adoção de animais resgatados",
+  "fr8_desc": "Plataforma que conecta animais resgatados a pessoas interessadas em adotar, organizando o processo de adoção do cadastro do animal até a chegada ao novo lar.",
   "stack_label": "Tecnologias",
   "stack_title": "Competências técnicas",
   "stack_lang": "Linguagens",
@@ -703,13 +699,13 @@ var i18n = {
   "fr5_desc": "Evolution and support of the platform's services, including member registration, workouts and CRM.",
   "fr6_ctx": "Human resources",
   "fr6_title": "HR system",
-  "fr6_desc": "HR system built with Java microservices: API Gateway, Eureka service discovery, user and payroll services communicating through OpenFeign, orchestrated with Docker Compose.",
+  "fr6_desc": "Payroll system that registers employees with their hourly rate and calculates each one's payment.",
   "fr7_ctx": "Procurement",
   "fr7_title": "Buyer and supplier orders",
-  "fr7_desc": "Dashboard that lists orders with buyer, supplier, product count and total value, and shows the items in each order. Spring Boot REST API with MySQL and an Angular 16 + Angular Material front-end.",
+  "fr7_desc": "Dashboard that lists each order with its buyer, supplier, product count and total value, and shows the items it contains.",
   "fr8_ctx": "Animal welfare",
-  "fr8_title": "Pet adoption platform",
-  "fr8_desc": "Pet adoption system with a Spring Boot REST API, React front-end and MySQL.",
+  "fr8_title": "Rescued animal adoption platform",
+  "fr8_desc": "Platform that connects rescued animals with people who want to adopt, organizing the adoption process from listing the animal to its arrival in a new home.",
   "stack_label": "Skills",
   "stack_title": "Technical skills",
   "stack_lang": "Languages",
