@@ -74,8 +74,6 @@ html.i18n-wait body{visibility:hidden}
 
 /* HERO */
 .hero .wrap{padding-block:4.5rem 3.5rem;display:grid;gap:1.75rem}
-.status{font-family:var(--mono);font-size:.82rem;color:var(--muted);display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
-.status .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance}
 h1 .role{display:block;color:var(--accent);font-weight:700}
 .lede{font-size:1.15rem;color:var(--muted);max-width:60ch;margin:0}
@@ -166,9 +164,7 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
   .hero .wrap{padding-block:3rem 2.5rem}
 }
 @media (prefers-reduced-motion:no-preference){
-  .status .dot{animation:pulse 2.4s ease-in-out infinite}
   body,.svc,.facts div,.c-card,.chips li,.theme-switch,.lang-switch{transition:background-color .25s,color .25s,border-color .25s}
-  @keyframes pulse{50%{box-shadow:0 0 0 7px transparent}}
 }
 </style>
 </head>
@@ -197,7 +193,6 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
 </div></nav>
 
 <header class="hero" id="topo"><div class="wrap">
-  <div class="status"><span class="dot" aria-hidden="true"></span> <span data-i18n="hero_status">CLT, PJ ou projetos · 100% remoto</span></div>
   <h1>Josevaldo Junior<span class="role" data-i18n="hero_role">Engenheiro de Software Full Stack</span></h1>
   <p class="lede" data-i18n="hero_lede">Há mais de cinco anos desenvolvo, sustento e modernizo sistemas corporativos, muitos deles críticos para órgãos públicos e empresas. Gosto de entender o problema antes de escrever código e de entregar software que continua funcionando bem depois de entrar em produção.</p>
   <div class="ctas">
@@ -476,7 +471,6 @@ var i18n = {
   "nav_experience": "Experiência",
   "nav_freelance": "Freelance",
   "nav_contact": "Contato",
-  "hero_status": "CLT, PJ ou projetos · 100% remoto",
   "hero_role": "Engenheiro de Software Full Stack",
   "hero_lede": "Há mais de cinco anos desenvolvo, sustento e modernizo sistemas corporativos, muitos deles críticos para órgãos públicos e empresas. Gosto de entender o problema antes de escrever código e de entregar software que continua funcionando bem depois de entrar em produção.",
   "hero_cta_contact": "Entrar em contato",
@@ -628,7 +622,6 @@ var i18n = {
   "nav_experience": "Experience",
   "nav_freelance": "Freelance",
   "nav_contact": "Contact",
-  "hero_status": "Full-time employment, contractor or freelance projects · 100% remote",
   "hero_role": "Full Stack Software Engineer",
   "hero_lede": "For over five years I've built, maintained and modernized enterprise systems, many of them critical to government agencies and companies. I like to understand the problem before writing code, and to ship software that keeps working well long after it goes live.",
   "hero_cta_contact": "Get in touch",
