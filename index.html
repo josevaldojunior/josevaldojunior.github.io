@@ -86,6 +86,10 @@ h1 .role{display:block;color:var(--accent);font-weight:700}
 .btn.ghost{background:transparent;color:var(--accent)}
 .btn.dl{display:inline-flex;align-items:center;gap:.45rem}
 .btn .dl-ico{width:17px;height:17px;flex-shrink:0}
+.contact-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem 2rem;flex-wrap:wrap}
+.contact-head > div{min-width:0;flex:1 1 20rem}
+.cv-btn{flex-shrink:0;padding:.6rem 1rem;font-size:.9rem;margin-top:.35rem}
+@media (max-width:760px){.cv-btn{margin:0 0 .75rem}}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:.5rem}
 .facts div{background:var(--surface);padding:1rem 1.1rem}
 .facts dt{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
@@ -199,8 +203,6 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
   <div class="ctas">
     <a class="btn primary" href="#contato" data-i18n="hero_cta_contact">Entrar em contato</a>
     <a class="btn ghost" href="#experiencia" data-i18n="hero_cta_exp">Ver experiência</a>
-    <a class="btn ghost dl" href="cv/Josevaldo_Junior_CV.pdf" download target="_blank" rel="noopener"><svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="hero_cv_pt">Baixar currículo</span></a>
-    <a class="btn ghost dl" href="cv/Josevaldo_Junior_CV_EN.pdf" download target="_blank" rel="noopener" lang="en"><svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="hero_cv_en">Download CV (EN)</span></a>
   </div>
   <dl class="facts">
     <div><dt data-i18n="fact_exp_k">Experiência</dt><dd data-i18n="fact_exp_v">5+ anos</dd></div>
@@ -430,8 +432,13 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
 <section id="contato"><div class="wrap">
   <p class="sec-label" data-i18n="contact_label">Contato</p>
   <div class="content">
-    <h2 data-i18n="contact_title">Vamos conversar</h2>
-    <p data-i18n="contact_intro">Para propostas ou orçamento de projetos, fale comigo pelo canal que preferir.</p>
+    <div class="contact-head">
+      <div>
+        <h2 data-i18n="contact_title">Vamos conversar</h2>
+        <p data-i18n="contact_intro">Para propostas ou orçamento de projetos, fale comigo pelo canal que preferir.</p>
+      </div>
+      <a class="btn ghost dl cv-btn" href="cv/Josevaldo_Junior_CV.pdf" data-i18n-attr="href:cv_href" download target="_blank" rel="noopener"><svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="cv_label">Baixar currículo</span></a>
+    </div>
     <ul class="contact-grid">
       <li><a class="c-card" href="https://wa.me/5591980554616?text=Ol%C3%A1%2C%20Josevaldo!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." data-i18n-attr="href:wa_href" target="_blank" rel="noopener"><span class="c-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.5 9.5 0 0 1-4.84-1.33l-.35-.21-3.6.94.96-3.5-.23-.36a9.46 9.46 0 0 1-1.45-5.04c0-5.23 4.26-9.49 9.5-9.49 2.54 0 4.92.99 6.71 2.79a9.43 9.43 0 0 1 2.78 6.71c0 5.24-4.26 9.5-9.47 9.5zm8.07-17.57A11.33 11.33 0 0 0 12.05.5C5.76.5.65 5.61.65 11.9c0 2.01.52 3.97 1.52 5.7L.55 23.5l6.04-1.58a11.4 11.4 0 0 0 5.45 1.39h.01c6.28 0 11.4-5.11 11.4-11.4 0-3.05-1.19-5.91-3.33-8.07z"/></svg></span><span class="c-text"><span class="c-k">WhatsApp</span><span class="c-v" data-i18n="contact_wa">Conversar agora</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
       <li><button class="c-card" type="button" id="copy-email" data-email="jjrsmedeiros@gmail.com" aria-label="Copiar e-mail jjrsmedeiros@gmail.com" data-i18n-attr="aria-label:aria_copy_email"><span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="c-text"><span class="c-k" id="copy-email-k" data-i18n="contact_email_k">E-mail · copiar</span><span class="c-v">jjrsmedeiros@gmail.com</span></span><svg class="c-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg></button></li>
@@ -474,8 +481,6 @@ var i18n = {
   "hero_lede": "Há mais de cinco anos desenvolvo, sustento e modernizo sistemas corporativos, muitos deles críticos para órgãos públicos e empresas. Gosto de entender o problema antes de escrever código e de entregar software que continua funcionando bem depois de entrar em produção.",
   "hero_cta_contact": "Entrar em contato",
   "hero_cta_exp": "Ver experiência",
-  "hero_cv_pt": "Baixar currículo",
-  "hero_cv_en": "Download CV (EN)",
   "fact_exp_k": "Experiência",
   "fact_exp_v": "5+ anos",
   "fact_lvl_k": "Último nível",
@@ -591,6 +596,8 @@ var i18n = {
   "edu_english": "Inglês avançado, em desenvolvimento contínuo.",
   "contact_label": "Contato",
   "contact_title": "Vamos conversar",
+  "cv_label": "Baixar currículo",
+  "cv_href": "cv/Josevaldo_Junior_CV.pdf",
   "contact_intro": "Para propostas ou orçamento de projetos, fale comigo pelo canal que preferir.",
   "contact_wa": "Conversar agora",
   "contact_email_k": "E-mail · copiar",
@@ -626,8 +633,6 @@ var i18n = {
   "hero_lede": "For over five years I've built, maintained and modernized enterprise systems, many of them critical to government agencies and companies. I like to understand the problem before writing code, and to ship software that keeps working well long after it goes live.",
   "hero_cta_contact": "Get in touch",
   "hero_cta_exp": "View experience",
-  "hero_cv_pt": "Download CV (PT)",
-  "hero_cv_en": "Download CV (EN)",
   "fact_exp_k": "Experience",
   "fact_exp_v": "5+ years",
   "fact_lvl_k": "Latest level",
@@ -743,6 +748,8 @@ var i18n = {
   "edu_english": "Advanced English, continuously improving.",
   "contact_label": "Contact",
   "contact_title": "Let's talk",
+  "cv_label": "Download CV",
+  "cv_href": "cv/Josevaldo_Junior_CV_EN.pdf",
   "contact_intro": "For proposals or project quotes, reach out through whichever channel you prefer.",
   "contact_wa": "Chat now",
   "contact_email_k": "Email · copy",
