@@ -84,6 +84,8 @@ h1 .role{display:block;color:var(--accent);font-weight:700}
 .btn{font:600 .95rem var(--body);padding:.75rem 1.2rem;border-radius:8px;text-decoration:none;border:1px solid var(--accent);cursor:pointer}
 .btn.primary{background:var(--accent);color:var(--bg)}
 .btn.ghost{background:transparent;color:var(--accent)}
+.btn.dl{display:inline-flex;align-items:center;gap:.45rem}
+.btn .dl-ico{width:17px;height:17px;flex-shrink:0}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:.5rem}
 .facts div{background:var(--surface);padding:1rem 1.1rem}
 .facts dt{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
@@ -197,6 +199,8 @@ footer .wrap{padding-block:2rem;font-size:.85rem;color:var(--muted);border-top:1
   <div class="ctas">
     <a class="btn primary" href="#contato" data-i18n="hero_cta_contact">Entrar em contato</a>
     <a class="btn ghost" href="#experiencia" data-i18n="hero_cta_exp">Ver experiência</a>
+    <a class="btn ghost dl" href="cv/Josevaldo_Junior_CV.pdf" download target="_blank" rel="noopener"><svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="hero_cv_pt">Baixar currículo</span></a>
+    <a class="btn ghost dl" href="cv/Josevaldo_Junior_CV_EN.pdf" download target="_blank" rel="noopener" lang="en"><svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="hero_cv_en">Download CV (EN)</span></a>
   </div>
   <dl class="facts">
     <div><dt data-i18n="fact_exp_k">Experiência</dt><dd data-i18n="fact_exp_v">5+ anos</dd></div>
@@ -470,6 +474,8 @@ var i18n = {
   "hero_lede": "Há mais de cinco anos desenvolvo, sustento e modernizo sistemas corporativos, muitos deles críticos para órgãos públicos e empresas. Gosto de entender o problema antes de escrever código e de entregar software que continua funcionando bem depois de entrar em produção.",
   "hero_cta_contact": "Entrar em contato",
   "hero_cta_exp": "Ver experiência",
+  "hero_cv_pt": "Baixar currículo",
+  "hero_cv_en": "Download CV (EN)",
   "fact_exp_k": "Experiência",
   "fact_exp_v": "5+ anos",
   "fact_lvl_k": "Último nível",
@@ -620,6 +626,8 @@ var i18n = {
   "hero_lede": "For over five years I've built, maintained and modernized enterprise systems, many of them critical to government agencies and companies. I like to understand the problem before writing code, and to ship software that keeps working well long after it goes live.",
   "hero_cta_contact": "Get in touch",
   "hero_cta_exp": "View experience",
+  "hero_cv_pt": "Download CV (PT)",
+  "hero_cv_en": "Download CV (EN)",
   "fact_exp_k": "Experience",
   "fact_exp_v": "5+ years",
   "fact_lvl_k": "Latest level",
